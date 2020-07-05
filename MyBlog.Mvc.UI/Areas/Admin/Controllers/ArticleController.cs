@@ -25,7 +25,6 @@ namespace MyBlog.Mvc.UI.Areas.Admin.Controllers
                 _counter = value;
             }
         }
-
         public ICategoryService _categoryService { get; set; }
         public IArticleService _articleService { get; set; }
         public HtmlDisplay _htmlDisplay { get; set; }
@@ -82,8 +81,6 @@ namespace MyBlog.Mvc.UI.Areas.Admin.Controllers
                 string[] fn = filename.Split('.');
                 newImage.Save(Server.MapPath($"~/Img/ArticlesImages/{fn[0]}_banner_"));
             }
-
-
             ModelState.Remove("CreatedOn");
             ModelState.Remove("ModifiedOn");
             ModelState.Remove("ModifiedUsername");
@@ -100,7 +97,6 @@ namespace MyBlog.Mvc.UI.Areas.Admin.Controllers
                 res.Error.ForEach(x => ModelState.AddModelError("", x.Messages));
                 return View(model);
             }
-
             return this.View(model);
         }
         public ActionResult ListArticles()

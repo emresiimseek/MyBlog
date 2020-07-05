@@ -11,6 +11,10 @@ namespace MyBlog.DataAccsess.Concrete
 {
     public class CommentDal : EntityRepositoryBase<Comment, MyBlogContext>, ICommentDal
     {
-
+        public int GetCommentCount(int id)
+        {
+            MyBlogContext myBlogContext = new MyBlogContext();
+            return myBlogContext.Comments.Where(c => c.Id == id).Count();
+        }
     }
 }

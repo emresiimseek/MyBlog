@@ -10,12 +10,12 @@
             <ul>
                 @foreach (Article article in Model)
                 {
-                    <li>
-                        <a href="post-details.html">
-                            <h5>@article.Title</h5>
-                            <span>@article.CreatedOn</span>
-                        </a>
-                    </li>
+                <li>
+                    <a title="Yazıya git" id="linkforarticle" href="/Articles/ArticleDetail?id=@article.Id">
+                        <h5>@article.Title</h5>
+                        <span>@article.CreatedOn</span>
+                    </a>
+                </li>
                 }
             </ul>
         </div>

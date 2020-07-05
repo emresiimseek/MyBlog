@@ -32,7 +32,12 @@
                                         <ul class="post-info">
                                             <li><a href="#">@article.ModifiedUsername</a></li>
                                             <li><a href="#">@article.CreatedOn.ToString("dd.MM.yy HH:mm")</a></li>
-                                            <li><a href="#">12 Comments</a></li>
+                                            @if (article.CommentCount!=null)
+                                            {
+                                            <li><a href="#"> @article.CommentCount Yorum</a></li>
+                                               
+                                            }
+
                                         </ul>
                                         <p>@article.Text <a id="linkforarticle" href="/Articles/ArticleDetail?id=@article.Id">Devamı...</a></p>
                                         <div class="post-options">
@@ -60,7 +65,7 @@
                         }
                         <div class="col-lg-12">
                             <div class="main-button">
-                                <a href="blog.html">View All Posts</a>
+                                <a href="blog.html">Tüm Yazıları Görüntüle</a>
                             </div>
                         </div>
                     </div>

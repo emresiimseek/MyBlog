@@ -24,14 +24,10 @@ namespace MyBlog.Mvc.UI.Controllers
       
         public ActionResult Index()
         {
-            //log4net.ILog log;
-            //log4net.Config.XmlConfigurator.Configure();
-            //log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-            //log.Info("anasayfadır");
-            if (ViewBag.Articles!=null)
+            if (TempData["Articles"] != null)
             {
                 List<Article> artics = new List<Article>();
-                artics= ViewBag.Articles as List<Article>;
+                artics= TempData["Articles"] as List<Article>;
                 return View(artics);
             }
 

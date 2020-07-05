@@ -24,7 +24,7 @@ namespace MyBlog.EntityFramework.Concrete
         public string ArticleImageName { get; set; }
         [Required, StringLength(2500), DisplayName("Ön İzleme Metini")]
         public string Text { get; set; }
-        public int LinkCount { get; set; }
+        public int CommentCount { get; set; }
         public virtual User User { get; set; }
         public virtual Category Category { get; set; }
         [AllowHtml]
@@ -33,6 +33,7 @@ namespace MyBlog.EntityFramework.Concrete
         public virtual Html_Content_Result HtmlPage { get; set; }
         public virtual List<Comment> Comments { get; set; }
         public virtual List<Liked> Likes { get; set; }
+        
 
 
     }

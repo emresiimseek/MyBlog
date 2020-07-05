@@ -10,6 +10,6 @@ namespace MyBlog.DataAccsess.Abstract
 {
     public interface ICommentDal : IEntityRepository<Comment>
     {
-
+        int GetCommentCount(int id);
     }
 }

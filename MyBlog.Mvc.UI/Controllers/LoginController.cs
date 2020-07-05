@@ -78,7 +78,7 @@ namespace MyBlog.Mvc.UI.Controllers
                 pagesModel.Header = "Info";
                 pagesModel.Items = businessLayerResult.Error;
                 pagesModel.Url = "/Home/HomePage";
-                return View("BaseViewPage", pagesModel);
+                return View("InfoViewPage", pagesModel);
             }
             else
             {
@@ -86,7 +86,7 @@ namespace MyBlog.Mvc.UI.Controllers
                 pagesModel.Header = "Success";
                 pagesModel.Items = new List<MessagesObj> { new MessagesObj { codes = MessagesCodes.Success, Messages = "İşlem Başarılı." } };
                 pagesModel.Url = "/Home/HomePage";
-                return View("BaseViewPage", pagesModel);
+                return View("InfoViewPage", pagesModel);
             }
         }
         public ActionResult UserActivateOk()

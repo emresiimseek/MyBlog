@@ -25,7 +25,6 @@ namespace MyBlog.Mvc.UI.Controllers
             List<Article> articles = new List<Article>();
             articles = _articleService.GetArticles();
             return View(articles);
-            //return  RedirectToAction("HomePage","Home", articles);
         }
         // GET: Articles
         public ActionResult ArticleDetail(int? id)
@@ -43,9 +42,8 @@ namespace MyBlog.Mvc.UI.Controllers
             if (id == null)
             {
                 return PartialView("_ListedofArticlesPartial");
-                //new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-             ViewBag.Articles= _articleService.GetArticlesByCategory(id) as List<Article>;
+            TempData["Articles"]= _articleService.GetArticlesByCategory(id) as List<Article>;
            
             return RedirectToAction("Index","Home");
         }

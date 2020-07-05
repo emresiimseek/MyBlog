@@ -18,5 +18,6 @@ namespace MyBlog.Business.Abstract
         BusinessLayerResult<Article> Add(BusinessLayerResult<Article> businessLayerResult);
         List<Article> GetLastArticle();
         int ImageCounter();
+        void UpdateCommentCount(Article article);
     }
 }

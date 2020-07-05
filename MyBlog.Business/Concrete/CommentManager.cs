@@ -26,13 +26,13 @@ namespace MyBlog.Business.Concrete
         {
             BusinessLayerResult<Comment> businessLayerResult = new BusinessLayerResult<Comment>();
             businessLayerResult.Result = comment;
-            if (comment!=null)
+            if (comment != null)
             {
-                int res= _commentDal.Add(comment);
-                
-                if (res>1)
+                int res = _commentDal.Add(comment);
+
+                if (res > 1)
                 {
-                    businessLayerResult.AddError(MessagesCodes.UnexpectedError,"Beklenmedik Hata");
+                    businessLayerResult.AddError(MessagesCodes.UnexpectedError, "Beklenmedik Hata");
                     return businessLayerResult;
                 }
                 else
@@ -42,6 +42,10 @@ namespace MyBlog.Business.Concrete
                 }
             }
             return businessLayerResult;
+        }
+        public int getCommentCount(int id)
+        {
+            return _commentDal.GetCommentCount(id);
         }
     }
 }

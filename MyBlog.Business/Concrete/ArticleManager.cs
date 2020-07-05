@@ -75,6 +75,9 @@ namespace MyBlog.Business.Concrete
             return _articleDal.GetImageCount();
         }
 
-       
+        public void UpdateCommentCount(Article article)
+        {
+            _articleDal.Update(article);
+        }
     }
 }

@@ -18,7 +18,6 @@ namespace MyBlog.Mvc.UI.Areas.Admin.Controllers
         public AdminCategoryController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
-
         }
         // GET: Admin/Category
         public ActionResult GetByCatId(int? id)
@@ -72,8 +71,5 @@ namespace MyBlog.Mvc.UI.Areas.Admin.Controllers
             ViewBag.result = "Kayıt silinirken hata alınmıştır.";
             return Json(result, JsonRequestBehavior.AllowGet);
         }
- 
-
-
     }
 }

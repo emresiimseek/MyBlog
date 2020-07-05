@@ -34,7 +34,6 @@ namespace MyBlog.Mvc.UI.Controllers
         [HttpPost]
         public ActionResult RegisterUser(User model)
         {
-
             if (ModelState.IsValid)
             {
                 BusinessLayerResult<User> businessLayerResult = _loginService.RegisterControl(model);
@@ -47,8 +46,6 @@ namespace MyBlog.Mvc.UI.Controllers
                 {
                     ViewBag.ErrorMessage = "Kayıt işlemi sırasında beklenmedik bir hata oluştu!";
                 };
-
-
                 ViewBag.Ok = "Hesabınız başarılı bir şekilde oluşturuldu.E-posta adresinize bir aktivasyon mail'i gönderilmiştir.Gönderilen maildeki link ile hesabınızı aktifleştirdikten sonra giriş yapabilirsiniz.Giriş sayfasına yönlendiriliyorsunuz...";
                 return View(model);
             }
@@ -77,12 +74,10 @@ namespace MyBlog.Mvc.UI.Controllers
 
         public JsonResult UpdateUser(User user, HttpPostedFileBase file)
         {
-
             ModelState.Remove("CreatedOn");
             ModelState.Remove("ModifiedOn");
             ModelState.Remove("ModifiedUsername");
             ModelState.Remove("ActivateGuid");
-
             if (!ModelState.IsValid)
             {
                 return Json(new { success = false, errors = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList() }, JsonRequestBehavior.AllowGet);
@@ -98,81 +93,28 @@ namespace MyBlog.Mvc.UI.Controllers
                 olduser.Username = user.Username;
                 olduser.Name = user.Name;
                 olduser.Lastname = user.Lastname;
-
             }
             if (file!=null)
             {
-                
                 string[] filetype = file.ContentType.Split('/');
                 string filename = $"userpp_{user.Id}.{filetype[1]}";
                 Directory.CreateDirectory(Server.MapPath("~/uploads/Profile"));
                 file.SaveAs(Server.MapPath($"~/uploads/Profile/{filename}"));
                 olduser.Profilephoto = filename;
-               
             }
-    
-         
             _loginService.UpdateUser(olduser);
-           
             return Json(olduser, JsonRequestBehavior.AllowGet);
-
         }
-
-        //[HttpPost]
-        //public JavaScriptResult UpdateUser(User model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return Json(new { success = false, errors = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList() }, JsonRequestBehavior.AllowGet);
-        //    }
-
-        //    if (ModelState.IsValid==true)
-        //    {
-        //        User user = _loginService.Get(model.Id);
-        //        _loginService.UpdateUser(model);
-        //        ViewBag.Success = "Kaydınız başar";
-        //        return PartialView("UserProfilePartail", user);
-        //    }
-
-        //        return PartialView("UserProfilePartail", model);
-
-        //}
-
-
-        public PartialViewResult Val()
-        {
-            return PartialView("ValPartial");
-        }
-
-        //[HttpPost]
-        //public ActionResult FileUpload(FileModel Model)
-        //{
-        //    if (Request.Files.Count > 0)
-        //    {
-
-        //    } 
-        //    string DosyaAdi = Model.File.FileName;
-        //    Model.File.SaveAs(Server.MapPath("~/Content/Dosyalar/" + DosyaAdi));
-
-        //    return View();
-        //}
-
 
         public JsonResult UpdateUserWithFile(FileModel user)
         {
-           
             if (!ModelState.IsValid)
             {
                 return Json(new { success = false, errors = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList() }, JsonRequestBehavior.AllowGet);
             }
-
             //_loginService.UpdateUser(user);
             User newuser = _loginService.Get(user.Id);
             return Json(newuser, JsonRequestBehavior.AllowGet);
-
         }
-
-
-
     }
 }

@@ -219,15 +219,11 @@
                     alert("Error: FormData is undefined");
 
                 else {
-                    //var fileUpload = $("#fileToUpload").get(0).files;
-                    //var files = fileUpload.files;
-
+                  
                     var files =$("#fileToUpload").get(0).files;
                     var fileData = new FormData();
                     fileData.append("file", files[0]);
                     fileData.append("Id", $("#uId").val());
-                    //fileData.append(files[0].name, files[0]);
-
                     fileData.append("Name", $("#uName").val());
                     fileData.append("Lastname", $("#uLastname").val());
                     fileData.append("ModifiedOn", new Date(Date.now()));
@@ -237,8 +233,6 @@
                     fileData.append("IsActive", $("#uIsActive").prop("checked"));
                     fileData.append("ActivateGuid", $("#uActivateGuid").val());
                     fileData.append("Password", $('#uPassword').val());
-
-
                     $.ajax({
                         url: '/Members/UpdateUser',
                         type: 'post',
@@ -253,12 +247,6 @@
                                 displayValidationErrors(errors)
                             }
                             else {
-                            //      var inp = document.createElement("INPUT");
-                            //    inp.setAttribute("type", "email");
-                            //    inp.setAttribute("value", a[i]);
-                            //    inp.setAttribute("id", "u" + i);
-                            //    inp.setAttribute("class", "form-control");
-                            //    $("#val").append(inp);
                                 displayValidationErrors("Kaydınız başarılı bir şekilde gerçekleşmiştir.")
                             }
                         }

@@ -22,7 +22,6 @@ namespace MyBlog.Mvc.UI.Areas.Admin.Controllers
         {
             return View(db.Users.ToList());
         }
-
         // GET: Admin/Users/Details/5
         public ActionResult Details(int? id)
         {

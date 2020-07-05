@@ -36,6 +36,9 @@ namespace MyBlog.Mvc.UI.Controllers
             }
             
             businessLayerResult = _commentService.AddComment(comment);
+            Article article= _articleService.GetArticle(comment.ArticleId);
+            article.CommentCount += 1;
+            _articleService.UpdateCommentCount(article);
             if (businessLayerResult.Error.Find(x => x.codes == MessagesCodes.UnexpectedError) != null)
             {
                 ViewBag.ErrorMessage = "Kayıt işlemi sırasında beklenmedik bir hata oluştu!";
