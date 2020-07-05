@@ -1,0 +1,424 @@
+﻿@using System.Web.Optimization;
+@using FrameworkCore.CrossCuttingConcerns.Security;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href="~/Content/Postcss/postcss.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    @{
+        string js = string.Empty;
+        if (Session["user"] != null)
+        {
+            var id = Session["id"];
+
+            js = "var id=" + id;
+        }
+
+    }
+
+    <script>
+        $(function () {
+
+            $("#btnAra").click(function () {
+                var dat = $("#txt_veri").val();
+                $.ajax({
+                    method: "GET",
+                    url: "/Articles/GetArticles",
+                    data: { veri: dat }
+                }).done(function (a) {
+                    $("#main").html(a);
+                    //$("#leftpanel").html(d);
+                });
+            });
+
+            $("#pop").click(function () {
+                var id = null;
+
+                @Html.Raw(js);
+                $.ajax({
+                    method: "POST",
+                    url: "/Members/UserProfile",
+                    data: { model: id}
+                }).done(function (a) {
+                    if ($("#uName").val() == null) {
+                        for (var i in a) {
+                            if (i == "Name" || i == "Lastname" || i == "Username") {
+                                var inp = document.createElement("INPUT");
+                                inp.setAttribute("type", "text");
+                                inp.setAttribute("value", a[i]);
+                                inp.setAttribute("id", "u" + i);
+                                inp.setAttribute("class", "form-control");
+                                $("#userd").append(inp);
+                            }
+                            if (i == "Password") {
+                                var inp = document.createElement("INPUT");
+                                inp.setAttribute("type", "password");
+                                inp.setAttribute("value", a[i]);
+                                inp.setAttribute("id", "u" + i);
+                                inp.setAttribute("class", "form-control");
+                                $("#userd").append(inp);
+                            }
+                            if (i == "IsActive") {
+                                var inp = document.createElement("INPUT");
+                                inp.setAttribute("type", "checkbox");
+                                inp.setAttribute("id", "u" + i);
+                                inp.setAttribute("class", "checkbox-inline");
+                                inp.setAttribute("checked",a[i])
+                                $("#userd").append(inp);
+                            }
+                            if (i == "Email") {
+                                var inp = document.createElement("INPUT");
+                                inp.setAttribute("type", "email");
+                                inp.setAttribute("value", a[i]);
+                                inp.setAttribute("id", "u" + i);
+                                inp.setAttribute("class", "form-control");
+                                $("#userd").append(inp);
+                            }
+                            if (i == "ModifiedUsername") {
+                                var inp = document.createElement("INPUT");
+                                inp.setAttribute("type", "text");
+                                inp.setAttribute("value", a[i]);
+                                inp.setAttribute("id", "u" + i);
+                                inp.setAttribute("class", "form-control");
+                                inp.setAttribute("style", "display:none")
+                                $("#userd").append(inp);
+                            }
+                            if (i == "Id") {
+                                var inp = document.createElement("INPUT");
+                                inp.setAttribute("type", "text");
+                                inp.setAttribute("value", a[i]);
+                                inp.setAttribute("id", "u" + i);
+                                inp.setAttribute("class", "form-control");
+                                inp.setAttribute("style", "display:none")
+                                $("#userd").append(inp);
+                            }
+                        }
+                    }
+                    }).always(function () {
+                        $('#userModal').modal('show')
+                    });
+            });
+
+              $(document).on('click', '.edit_data', function () {
+
+
+                var message = confirm("Kullanıcı bilgileriniz güncellenecektir.Devam etmek istiyor musunuz?");
+                if (message == true) {
+
+                            var model = new Object();
+                            model.Id = $('#uId').val();
+                            model.Name = $('#uName').val();
+                            model.Lastname = $('#uLastname').val();
+                            model.ModifiedOn = new Date(Date.now());
+                            model.CreatedOn = new Date(Date.now());
+                            model.ModifiedUsername = $('#uModifiedUsername').val();
+                            model.Username = $('#uUsername').val();
+                            model.Email = $('#uEmail').val();
+                            model.Password = $('#uPassword').val();
+                            model.IsActive = $("#uIsActive").prop("checked");
+                            model.ActivateGuid = $('#uActivateGuid').val();
+                            $.ajax({
+                                method: "POST",
+                                url: "/Members/UpdateUser",
+                                data: JSON.stringify(model),
+                                contentType: "application/json",
+                                success: function (e) {
+                                    if (e['success'] == false) {
+                                        var errors = e['errors'];
+                                        displayValidationErrors(errors)
+                                    }
+                                }
+                            });
+                                      }
+            });
+
+            function displayValidationErrors(errors) {
+                var $ul = $('div.validation-summary-valid.text-danger > ul');
+
+                $ul.empty();
+                $.each(errors, function (idx, errorMessage) {
+                    $("#userd").append('<li>' + errorMessage + '</li>');
+                });
+            }
+        });
+    </script>
+
+    <style>
+
+        div.logo {
+            /*margin-top: 10px;
+                    margin-bottom: 10px;*/
+            position: relative;
+            z-index: 99;
+            text-align: center;
+        }
+
+        div.logo-h-txt {
+            font-family: "Playfair Display";
+            line-height: 76px;
+            letter-spacing: -1px;
+            font-weight: 300;
+            font-style: normal;
+            color: #222222;
+            font-size: 73px;
+        }
+
+        a.logo_link {
+            font-family: "Playfair Display";
+            line-height: 76px;
+            letter-spacing: -1px;
+            font-weight: 300;
+            font-style: normal;
+            color: #222222;
+            font-size: 60px;
+            vertical-align: baseline;
+            text-decoration: none;
+        }
+
+        .logo_tagline {
+            font-family: "Playfair Display";
+            text-transform: uppercase;
+            line-height: 15px;
+            letter-spacing: 3px;
+            font-weight: 400;
+            font-style: normal;
+            color: #000000;
+            font-size: 13px;
+        }
+
+        .nav_brand {
+            font-family: "Playfair Display";
+        }
+
+        .widget {
+            margin-bottom: 30px;
+            padding: 30px;
+            background: #fff;
+            position: relative;
+            z-index: 0;
+        }
+
+        .footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            text-align: center;
+        }
+
+        .hs-icon {
+            width: 55px;
+            height: 55px;
+            line-height: 55px;
+            font-size: inherit;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "montserrat",sans-serif;
+        }
+
+        .social-buttons a {
+            display: inline-flex;
+            text-decoration: none;
+            font-size: 18px;
+            width: 60px;
+            height: 60px;
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin: 0 8px;
+        }
+
+            .social-buttons a::before {
+                content: "";
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(45deg,#15962b,#808080);
+                border-radius: 50%;
+                z-index: -1;
+                transition: 0.3s ease-in;
+            }
+
+            .social-buttons a:hover::before {
+                transform: scale(0);
+            }
+
+            .social-buttons a i {
+                transition: 0.3s ease-in;
+            }
+
+            .social-buttons a:hover i {
+                background: linear-gradient(45deg,#15962b,#808080);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                transform: scale(2.2);
+            }
+
+        .body {
+            overflow-x: hidden !important;
+        }
+    </style>
+</head>
+<body class="body">
+    <div class=" container-fluid">
+        @*Banner*@
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="logo ">
+                    <div class="logo-h-txt">
+                        <a href="/Home/HomePage" title="YAZILIM |TEKNOLOJİ|ARAŞTIRMA" class="logo_link">M.Emre Şimşek</a>
+                    </div>
+                    <p class="logo_tagline">  YAZILIM |TEKNOLOJİ|ARAŞTIRMA</p>
+
+                </div>
+            </div>
+        </div>
+        @*Menü*@
+        <div class="row ">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <nav style="border-radius:90px/90px;" class="navbar navbar-expand-lg navbar-expand-lg navbar-dark bg-dark ">
+                    <a class="navbar-brand nav_brand " href="/Home/HomePage">Anasayfa</a>
+                    <button class="navbar-toggler nav_brand" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+
+                                <a class="nav-link nav_brand" href="/About/AboutPage">Hakkımda <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link nav_brand " href="/Articles/ArticlesPage">Yazılar</a>
+                            </li>
+
+                            @Html.Action("GetCategories", "Category")
+                            @*@{Html.RenderAction("getCategories", "Articles");}*@
+                            <li class="nav-item active nav_brand">
+                                <a class="nav-link nav_brand" href="/Contact/ContactPage">İletişim </a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input id="txt_veri" class="form-control mr-sm-2 nav_brand" type="search" placeholder="Ara" aria-label="Ara">
+                            <button style="margin-right:40px;" id="btnAra" class="btn btn-outline-success my-2 my-sm-0 nav_brand " type="button">Ara</button>
+                        </form>
+                    </div>
+
+                    @{
+                        User user = (User)Session["user"];
+                    }
+                    @if (user != null)
+                    {
+
+                        <div id="userDetail">
+                            <!-- Modal -->
+                            <div class="modal fade" id="userModal" tabindex="-1" role="form" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Profil </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <label>Adı:</label><br />
+                                                    <label>Soyadı:</label><br />
+                                                    <label>Kullanıcı Adı:</label><br />
+                                                    <label>Parola:</label><br />
+                                                    <label>EPosta:</label><br />
+                                                    <label>Aktif mi?</label><br />
+                                                </div>
+                                                <div id="userd" class="col-sm-8">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                            <button id="save" type="submit" class="btn btn-primary edit_data">Kaydet</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin:6px;" id="pop" class=" btn btn-success nav_brand">
+                            <svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                            </svg>
+                            @if (user != null)
+                            {
+                                @(user.Name + " " + @user.Lastname)
+                            }
+                        </div>
+                        <a href="/Login/SignOut">
+                            <i style="color:red;" class="fa fa-sign-out" aria-hidden="true"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a style="margin-right:5px" class="btn btn-outline-success my-2 my-sm-0 nav_brand" href="/Members/RegisterUser">Kaydol</a>
+                        <a class="btn btn-success nav_brand" href="/Login/LoginPage">Giriş</a>
+                    }
+                </nav>
+            </div>
+        </div>
+    </div>
+    @*Body*@
+    <div id="main">
+        @RenderBody()
+    </div>
+    @*footer*@
+    <footer class="py-3 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+            <div class="social-buttons" style="text-align:center;">
+                <a href=""><i class="fab fa-teamspeak"></i></a>
+                <a href="https://twitter.com/emresimseka"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/emresimsekm/?hl=tr"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/muhammed-emre-%C5%9Fim%C5%9Fek-14a676136/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+
+
+
+    @*<div class="row">
+        <div class="col-sm-12 footer">
+            <hr />
+            <div class="social-buttons" style="text-align:center;">
+                <a href=""><i class="fab fa-teamspeak"></i></a>
+                <a href="https://twitter.com/emresimseka"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/emresimsekm/?hl=tr"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/muhammed-emre-%C5%9Fim%C5%9Fek-14a676136/"><i class="fab fa-linkedin-in"></i></a>
+
+            </div>
+            <hr />
+            <span>
+                Tüm hakları saklıdır. &copy;
+            </span>
+        </div>
+    </div>*@
+</body>
+</html>

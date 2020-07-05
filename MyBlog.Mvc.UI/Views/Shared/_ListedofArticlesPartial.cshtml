@@ -1,0 +1,93 @@
+﻿
+@model List<Article>
+
+
+
+@*<div class="container mb80 offset-1">
+    <div class="page-timeline">
+        @foreach (Article article in Model)
+        {
+            <div class="vtimeline-point">
+                <div class="vtimeline-icon">
+                    <i class="fa fa-image"></i>
+                </div>
+                <div class="vtimeline-block">
+                    <span class="vtimeline-date">@article.CreatedOn.ToString("dd.MM.yy HH:mm")</span><div class="vtimeline-content">
+                        <a href="#"><img src="~/Img/ArticlesImages/@article.ArticleImageName" width="600" height="200" alt="" class="img-fluid mb20"></a>
+                        <a href="#"><h3 style="font-family:Playfair Display">@article.Title</h3></a>
+                        <ul class="post-meta list-inline">
+                            <li class="list-inline-item">
+                                <i class="fa fa-user-circle-o"></i> <a href="#">John Doe</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="fa fa-calendar-o"></i> <a href="#">29 June 2017</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="fa fa-tags"></i> <a href="#">Bootstrap4</a>
+                            </li>
+                        </ul>
+                        <p>
+                            @if (article.Text.Length > 90)
+                            {
+                                @(article.Text.Substring(0, 400) + "...")
+                            }
+                            else
+                            {
+                                @article.Text
+                            }
+
+                        </p><br>
+                        @Html.ActionLink("Yazıya Git", "GetArticleById", "Articles", new { id = article.Id }, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>*@
+
+
+
+@foreach (Article article in Model)
+{
+
+    <div class="col-lg-12">
+        <div class="blog-post">
+            <div class="blog-thumb">
+                <a href="#"><img src="~/Img/ArticlesImages/@article.ArticleImageName" alt=""></a>
+            </div>
+            <div class="down-content">
+                <span>Lifestyle</span>
+                <a href="post-details.html"><h4>@article.Title</h4></a>
+                <ul class="post-info">
+                    <li><a href="#">@article.ModifiedUsername</a></li>
+                    <li><a href="#">@article.CreatedOn.ToString("dd.MM.yy HH:mm")</a></li>
+                    <li><a href="#">12 Comments</a></li>
+                </ul>
+                <p>@article.Text <a href="/Articles/GetArticleById?id=@article.Id">Devamı...</a></p>
+                <div class="post-options">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="post-tags">
+                                <li><i class="fa fa-tags"></i></li>
+                                <li><a href="#">@article.Category.Title </a>,</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-6">
+                            <ul class="post-share">
+                                <li><i class="fa fa-share-alt"></i></li>
+                                <li><a href="#">Facebook</a>,</li>
+                                <li><a href="#"> Twitter</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+

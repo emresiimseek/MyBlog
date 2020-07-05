@@ -1,0 +1,36 @@
+﻿@model List<Article>
+@using MyBlog.EntityFramework.Concrete
+
+<!-- Page Content -->
+<!-- Banner Starts Here -->
+<div class="main-banner header-text">
+    <div class="container-fluid">
+        <div class="owl-banner owl-carousel">
+
+            @foreach (Article article in Model)
+            {
+                <div class="item">
+
+                    @{
+                                string[] fl = article.ArticleImageName.Split('.');
+                                string filename = $"{fl[0]}_banner_.{fl[1]}";
+                    }
+                    <img src="~/Img/ArticlesImages/@filename" alt="">
+                    <div class="item-content">
+                        <div class="main-content">
+                            <div class="meta-category">
+                                <span>@article.Category.Title</span>
+                            </div>
+                            <a href="post-details.html"><h4>@article.Title</h4></a>
+                            <ul class="post-info">
+                                <li><a href="#">@article.User.Username</a></li>
+                                <li><a href="#">@article.CreatedOn</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Banner Ends Here -->

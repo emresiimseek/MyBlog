@@ -1,0 +1,26 @@
+﻿@model MyBlog.EntityFramework.Concrete.Article
+@{
+    ViewBag.Title = "GetArticleById";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<div class="container">
+    <div class="col-sm-6"></div>
+    @if (Model.HtmlPage != null)
+    {
+        @Html.Raw(Model.HtmlPage.html_content)
+
+
+
+
+
+    }
+
+</div>
+
+<div class="container">
+    @Html.Partial("_CommentsByIdPartial", Model.Comments)
+</div>
+
+
+

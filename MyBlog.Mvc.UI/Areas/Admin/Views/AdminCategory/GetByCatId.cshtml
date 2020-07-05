@@ -1,0 +1,42 @@
+﻿@model MyBlog.EntityFramework.Concrete.Category
+@{
+    ViewBag.Title = "GetByICatId";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminBaseLayout.cshtml";
+}
+
+
+<div class="container" id="createDiv">
+
+    <div class="row">
+        <div class="col-sm-4">
+            @Html.Label("Kategori Adı:") <br /><br />
+            @Html.Label("Kategori Id:")<br /><br />
+            @Html.Label("En son düzenleyen kullanıcı:")<br /><br />
+            @Html.Label("Düzenleme Tarihi:")<br /><br />
+            @Html.Label("Oluşturma Tarihi:")<br />
+        </div>
+        @using (Html.BeginForm())
+        {
+            <div class="col-sm-12">
+
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "txt-danger" })
+
+                <div>
+                    @Html.TextBoxFor(model => model.Title, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div> <br />
+                @Html.TextBoxFor(model => model.Id, htmlAttributes: new { @class = "form-control", @id = "id", @readonly = "readonly" })<br />
+                @Html.TextBoxFor(model => model.ModifiedUsername, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })<br />
+                @Html.TextBoxFor(model => model.ModifiedOn, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })<br />
+                @Html.TextBoxFor(model => model.CreatedOn, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })<br />
+                <button type="submit" class="btn btn-success">Kaydet</button>
+            </div>
+        }
+        <div class="col-sm-12 offset-4"><button style="margin-top:3px;" type="submit" id="btnDelete" class="btn btn-danger">Sil</button></div>
+
+
+
+    </div>
+</div>
