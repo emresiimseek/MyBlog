@@ -1,29 +1,18 @@
 ﻿<!DOCTYPE html>
 <html lang="tr">
-
+@using System.Web.Optimization
 
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    @*<meta name="description" content="">*@
-    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
-    @*<meta name="author" content="TemplateMo">*@
-    <script src="~/Scripts/jquery-3.5.1.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-
+    @Scripts.Render("~/js/all")
     <!-- Bootstrap core CSS -->
-    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
+    @Styles.Render("~/css/all")
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="~/assets/css/fontawesome.css">
-    <link href="~/assets/css/templatemo-stand-blog.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/assets/css/owl.css">
-    <link rel="stylesheet " href="~/assets/css/social-buttons.css" />
-    <link href="~/assets/css/custom.css" rel="stylesheet" />
-
+    @Styles.Render("~/temp/css")
 
     @{
         string js = string.Empty;
@@ -36,68 +25,42 @@
 
     }
 
-    <style>
-        .circular--portrait {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            overflow: hidden;
-            border-radius: 50%;
-            margin-left: 20px;
-            margin-bottom: 35px;
-        }
-
-            .circular--portrait img {
-                width: 100%;
-                height: auto;
-            }
-
-        #footer {
-            /*height: 125px;*/
-            bottom: 0px;
-            /*left: 0px;*/
-            /*right: 0px;*/
-        }
-    </style>
-
     <script>
 
-        $(function () {
-            @RenderSection("allblogpost", required: false)
-            $('#txt_veri').on('keypress', function (e) {
-                if (e.which === 13) {
+    $(function () {
+    @RenderSection("allblogpost", required: false)
+    /**/
+    $('#txt_veri').on('keypress', function (e) {
+        if (e.which === 13) {
 
-                    //Disable textbox to prevent multiple submit
-                    $(this).attr("disabled", "disabled");
+            //Disable textbox to prevent multiple submit
+            $(this).attr("disabled", "disabled");
 
-                    var dat = $("#txt_veri").val();
-                    $.ajax({
-                        method: "GET",
-                        url: "/Articles/GetArticles",
-                        data: { veri: dat }
-                    }).done(function (a) {
-                        $("#main").html(a);
-                        //$("#leftpanel").html(d);
-                    });
-
-                    //Enable the textbox again if needed.
-                    $(this).removeAttr("disabled");
-                }
+            var dat = $("#txt_veri").val();
+            $.ajax({
+                method: "GET",
+                url: "/Articles/GetArticles",
+                data: { veri: dat }
+            }).done(function (a) {
+                $("#main").html(a);
+                //$("#leftpanel").html(d);
             });
 
-            $("#pop").click(function () {
-                var id = null;
+            //Enable the textbox again if needed.
+            $(this).removeAttr("disabled");
+        }
+    });
 
-                @Html.Raw(js);
+    $("#pop").click(function () {
+        var id = null;
+
+    @Html.Raw(js);
+                /**/
                 $.ajax({
                     method: "POST",
                     url: "/Members/UserProfile",
-                    data: { model: id}
+                    data: { model: id }
                 }).done(function (a) {
-
-
-                    //if ($("#uName").val()== null) {
-
                     var maininput = document.createElement("DIV");
                     maininput.setAttribute("class", "col-sm-8");
                     maininput.setAttribute("id", "userd");
@@ -107,109 +70,92 @@
                     var inppp = document.createElement("INPUT");
                     inppp.setAttribute("type", "file");
                     inppp.setAttribute("id", "fileToUpload");
-                    //inppp.setAttribute("style", "margin-top:110px;float:left;");
                     maininput.appendChild(inppp);
+                    for (var i in a) {
 
+                        if (i == "Profilephoto") {
+                            var img = document.createElement("IMG");
+                            img.setAttribute("src", "/uploads/Profile/" + a[i]);
+                            img.setAttribute("width", "100");
+                            img.setAttribute("height", "150");
+                            $("#pp").append(img);
+                        }
 
+                        if (i == "Name") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "Lastname") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "Username") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            maininput.appendChild(inp);
+                        }
 
-
-                        for (var i in a) {
-
-                            if (i == "Profilephoto") {
-                                var img = document.createElement("IMG");
-                                img.setAttribute("src","/uploads/Profile/"+a[i]);
-                                img.setAttribute("width", "100");
-                                img.setAttribute("height", "150");
-                                $("#pp").append(img);
-
-                            }
-
-                            if (i == "Name" ) {
-                                var inp = document.createElement("INPUT");
-                                inp.setAttribute("type", "text");
-                                inp.setAttribute("value", a[i]);
-                                inp.setAttribute("id", "u" + i);
-                                inp.setAttribute("class", "form-control");
-                                //$("#userd").append(inp);
-                                maininput.appendChild(inp);
-                            }
-                            if (i == "Lastname") {
-                                var inp = document.createElement("INPUT");
-                                inp.setAttribute("type", "text");
-                                inp.setAttribute("value", a[i]);
-                                inp.setAttribute("id", "u" + i);
-                                inp.setAttribute("class", "form-control");
-                                //$("#userd").append(inp);
-                                maininput.appendChild(inp);
-                            }
-                            if (i == "Username") {
-                                var inp = document.createElement("INPUT");
-                                inp.setAttribute("type", "text");
-                                inp.setAttribute("value", a[i]);
-                                inp.setAttribute("id", "u" + i);
-                                inp.setAttribute("class", "form-control");
-                                //$("#userd").append(inp);
-                                maininput.appendChild(inp);
-                            }
-
-                            if (i == "Password") {
-                                var inp = document.createElement("INPUT");
-                                inp.setAttribute("type", "password");
-                                inp.setAttribute("value", a[i]);
-                                inp.setAttribute("id", "u" + i);
-                                inp.setAttribute("class", "form-control");
-                                //$("#userd").append(inp);
-                                maininput.appendChild(inp);
-                            }
-                            if (i == "IsActive") {
-                                var inp = document.createElement("INPUT");
-                                inp.setAttribute("type", "checkbox");
-                                inp.setAttribute("id", "u" + i);
-                                inp.setAttribute("class", "checkbox-inline");
-                                inp.setAttribute("checked",a[i])
-                                //$("#userd").append(inp);
-                                maininput.appendChild(inp);
-                            }
-                            if (i == "Email") {
-                                var inp = document.createElement("INPUT");
-                                inp.setAttribute("type", "email");
-                                inp.setAttribute("value", a[i]);
-                                inp.setAttribute("id", "u" + i);
-                                inp.setAttribute("class", "form-control");
-                                //$("#userd").append(inp);
-                                maininput.appendChild(inp);
-                            }
-                            if (i == "ModifiedUsername") {
-                                var inp = document.createElement("INPUT");
-                                inp.setAttribute("type", "text");
-                                inp.setAttribute("value", a[i]);
-                                inp.setAttribute("id", "u" + i);
-                                inp.setAttribute("class", "form-control");
-                                inp.setAttribute("style", "display:none")
-                                //$("#userd").append(inp);
-                                maininput.appendChild(inp);
-                            }
-                            if (i == "Id") {
-                                var inp = document.createElement("INPUT");
-                                inp.setAttribute("type", "text");
-                                inp.setAttribute("value", a[i]);
-                                inp.setAttribute("id", "u" + i);
-                                inp.setAttribute("class", "form-control");
-                                inp.setAttribute("style", "display:none")
-                                //$("#userd").append(inp);
-                                maininput.appendChild(inp);
-                            }
+                        if (i == "Password") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "password");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "IsActive") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "checkbox");
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "checkbox-inline");
+                            inp.setAttribute("checked", a[i])
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "Email") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "email");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "ModifiedUsername") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            inp.setAttribute("style", "display:none")
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "Id") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            inp.setAttribute("style", "display:none")
+                            maininput.appendChild(inp);
+                        }
 
                     }
                     $("#userd").replaceWith(maininput);
+                }).always(function () {
 
-                    //}
-                    }).always(function () {
-
-                        $('#userModal').modal('show')
-                        $("#val").empty();
-
-                    });
+                    $('#userModal').modal('show')
+                    $("#val").empty();
+                });
             });
 
 
@@ -217,10 +163,8 @@
 
                 if (window.FormData == undefined)
                     alert("Error: FormData is undefined");
-
                 else {
-                  
-                    var files =$("#fileToUpload").get(0).files;
+                    var files = $("#fileToUpload").get(0).files;
                     var fileData = new FormData();
                     fileData.append("file", files[0]);
                     fileData.append("Id", $("#uId").val());
@@ -265,7 +209,7 @@
                     data: JSON.stringify(comment),
                     contentType: "application/json",
                     success: function (d) {
-                            $("#com").append(d);
+                        $("#com").append(d);
                     }
                 });
 
@@ -326,7 +270,7 @@
                         @if (user != null)
                         {
                             <li>
-                         @Html.Partial("_ProfilePartial")
+                                @Html.Partial("_ProfilePartial")
                             </li>
                             <li>
                                 <div id="pop">
@@ -358,16 +302,8 @@
             </div>
         </nav>
     </header>
-
-    @RenderBody()
-
-
-
-
-
-
+        @RenderBody()
     <br /><br />
-
     <footer class="py-3 bg-dark" id="footer" style="margin-top:100px;">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
@@ -381,29 +317,8 @@
         </div>
         <!-- /.container -->
     </footer>
-
-    <script src="~/vendor/jquery/jquery.min.js"></script>
-    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
     <!-- Additional Scripts -->
-    <script src="~/assets/js/custom.js"></script>
-    <script src="~/assets/js/owl.js"></script>
-    <script src="~/assets/js/slick.js"></script>
-    <script src="~/assets/js/isotope.js"></script>
-    <script src="~/assets/js/accordions.js"></script>
-
-    <script language="text/Javascript">
-
-        cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-        function clearField(t) {                   //declaring the array outside of the
-            if (!cleared[t.id]) {                      // function makes it static and global
-                cleared[t.id] = 1;  // you could use true and false, but that's more typing
-                t.value = '';         // with more chance of typos
-                t.style.color = '#fff';
-            }
-        }
-    </script>
+    @Scripts.Render("~/temp/js")
 
 </body>
 </html>

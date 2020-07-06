@@ -156,7 +156,9 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\admin-layout.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\main-layout.css" />
     <Content Include="Content\Errorpagecss\error.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
