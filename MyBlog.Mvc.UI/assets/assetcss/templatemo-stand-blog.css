@@ -8,31 +8,7 @@ https://templatemo.com/tm-551-stand-blog
 
 
 
-@font-face {
-    font-family: "Mohave-Medium";
-    src: url('/Content/fonts/Mohave-Medium.otf'); /* IE9 */
-}
 
-
-.pageContentWrapper {
-    margin-bottom: 120px; /* Height of footer*/
-} 
-/*yazýtipi*/
-body {
-    font-family: Mohave-Medium;
-    overflow-x: hidden;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin: 0;
-    padding: 0;
-}
-html {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    min-height: 100%;
-}
 
 p {
     margin-bottom: 0px;
@@ -1031,10 +1007,16 @@ ul.page-numbers {
         font-size: 20px;
     }
 
-    #fileToUpload {
-        margin-top: 110px;
+
+}
+
+@media (min-width: 768px) {
+    #userd {
+        margin-top: 105px;
     }
 }
+
+
 
 @media (max-width: 768px) {
     .owl-banner .owl-nav {
@@ -1048,7 +1030,10 @@ ul.page-numbers {
 
     #userd {
         width: 60%;
-        /*margin-top:3px;*/
+        margin-top: 110px;
+    }
+    .modal-dialog-scrollable .modal-body {
+        overflow-y: visible;
     }
 }
 
@@ -1150,7 +1135,7 @@ ul.page-numbers {
         margin-top: 60px;
     }
 
-  
+
 
     .blog-posts .down-content p a {
         font-size: 14px;

@@ -10,11 +10,22 @@ namespace MyBlog.Mvc.UI.App_Start
     {
         public static void RegisterRoutes(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/css/all").Include("~/Content/css/main-layout.css", "~/Content/bootstrap.min.css", "~/Content/css/font-awesome.min.css"));
-            bundles.Add(new ScriptBundle("~/js/all").Include("~/Scripts/bootstrap.min.js", "~/Scripts/jquery-3.5.1.min.js"));
+            bundles.Add(new StyleBundle("~/css/all").Include(
+                "~/Content/bootstrap.min.css",
+                "~/assets/assetcss/custom.css",
+                "~/assets/assetcss/templatemo-stand-blog.css",
+                "~/assets/assetcss/flex-slider.css",
+                "~/assets/assetcss/owl.css",
+                "~/assets/assetcss/social-buttons.css",
+                "~/Content/css/main-layout.css"
+                ));
 
-            bundles.Add(new StyleBundle("~/temp/css").Include("~/assets/css/*.css"));
-            bundles.Add(new ScriptBundle("~/temp/js").Include("~/assets/js/*.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/fontawesome").Include("~/Content/css/font-awesome.min.css", new CssRewriteUrlTransform()));
+
+            bundles.Add(new ScriptBundle("~/js/all").Include("~/Scripts/bootstrap.min.js", "~/Scripts/jquery-3.5.1.js"));
+
+            bundles.Add(new ScriptBundle("~/temp/js/all").Include("~/assets/js/*.js"));
 
 
         }

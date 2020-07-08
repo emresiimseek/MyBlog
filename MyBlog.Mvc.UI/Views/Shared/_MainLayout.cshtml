@@ -6,14 +6,10 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href="~/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     @Scripts.Render("~/js/all")
-    <!-- Bootstrap core CSS -->
     @Styles.Render("~/css/all")
-    <!-- Additional CSS Files -->
-    @Styles.Render("~/temp/css")
-
+    @Scripts.Render("~/temp/js/all")
     @{
         string js = string.Empty;
         if (Session["user"] != null)
@@ -308,11 +304,9 @@
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
             <div class="social-buttons" style="text-align:center;">
-                <a href=""><i class="fab fa-teamspeak"></i></a>
-                <a href="https://twitter.com/emresimseka"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/emresimsekm/?hl=tr"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/in/muhammed-emre-%C5%9Fim%C5%9Fek-14a676136/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/emresimseka">  <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/muhammed-emre-%C5%9Fim%C5%9Fek-14a676136/">  <i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
         </div>
         <!-- /.container -->
