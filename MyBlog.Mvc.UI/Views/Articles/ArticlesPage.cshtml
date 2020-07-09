@@ -19,11 +19,11 @@
                             <div class="col-lg-6">
                                 <div class="blog-post">
                                     <div class="blog-thumb">
-                                        <a href="#"><img src="~/Img/ArticlesImages/@article.ArticleImageName" alt=""></a>
+                                        <a href="/Articles/GetArticleById?id=@article.Id"><img src="~/Img/ArticlesImages/@article.ArticleImageName" alt=""></a>
                                     </div>
                                     <div class="down-content">
                                         <span>Lifestyle</span>
-                                        <a href="post-details.html"><h4>@article.Title</h4></a>
+                                        <a href="/Articles/GetArticleById?id=@article.Id"><h4>@article.Title</h4></a>
                                         <ul class="post-info">
                                             <li><a href="#">@article.ModifiedUsername</a></li>
                                             <li><a href="#">@article.CreatedOn.ToString("dd.MM.yy HH:mm")</a></li>
@@ -89,6 +89,7 @@
         $("#about").removeClass("active");
         $("#home").removeClass("active");
         $("#contact").removeClass("active");
+        $(".push").css("height", "47%");
     </script>
 
 }

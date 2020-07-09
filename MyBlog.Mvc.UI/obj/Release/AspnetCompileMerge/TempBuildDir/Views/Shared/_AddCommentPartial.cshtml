@@ -1,0 +1,13 @@
+﻿@model MyBlog.EntityFramework.Concrete.Comment
+<li>
+    <div class="author-thumb">
+        <img src="/uploads/Profile/@Model.User.Profilephoto" alt="">
+    </div>
+    <div class="right-content">
+        <h4>@Model.User.Username<span>@Model.ModifiedOn</span></h4>
+        <div class="col-sm-8">
+            <p>@Model.Text</p>
+        </div>
+
+    </div>
+</li>

@@ -169,8 +169,10 @@ namespace MyBlog.Business.Concrete
             else
             {
                 string siteUri = ConfigHelper.GetConfigPar<string>("SiteRootUri");
-                string activateUri = $"{siteUri}/Login/UserActivate/{user.ActivateGuid}";
-                MailHelper.SendMail($"Merhaba,</br>Aramıza hoşgeldin aşağıdaki linke tıklayarak hesabını aktif edebilirsin.</br><a href='{activateUri}' target='_blank'>tıklayınız.</a>", user.Email, "Blog Sitesi Hesap Aktifleştirme.");
+                string activateUri = String.Format("{0}/Login/UserActivate/{1}", siteUri, user.ActivateGuid);
+//String.Format("Merhaba,</br>Aramıza hoşgeldin aşağıdaki linke tıklayarak hesabını aktif edebilirsin.</br><a href='{0}' target='_blank'>tıklayınız.</a>", activateUri);
+
+                MailHelper.SendMail(String.Format("Merhaba,</br>Aramıza hoşgeldin aşağıdaki linke tıklayarak hesabını aktif edebilirsin.</br><a href='{0}' target='_blank'>tıklayınız.</a>", activateUri), user.Email, "Blog Sitesi Hesap Aktifleştirme.");
             }
             return businessLayerResult;
         }

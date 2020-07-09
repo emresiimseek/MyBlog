@@ -51,9 +51,11 @@ a {
     /*margin-bottom: 500px;*/
 }
 
-#footer,
+#footer{
+    height: 15%;
+}
 .push {
-    height: 138px;
+    height: 15%;
 }
 
 .btn-outline-success:hover {

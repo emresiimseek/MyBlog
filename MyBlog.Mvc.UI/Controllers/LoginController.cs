@@ -18,7 +18,7 @@ using System.Web.Security;
 namespace MyBlog.Mvc.UI.Controllers
 {
     [AllowAnonymous]
-    [ExpFilter]
+    //[ExpFilter]
     public class LoginController : Controller
     {
         LoginUserView user = new LoginUserView();
@@ -77,7 +77,7 @@ namespace MyBlog.Mvc.UI.Controllers
                 PagesModel pagesModel = new PagesModel();
                 pagesModel.Header = "Info";
                 pagesModel.Items = businessLayerResult.Error;
-                pagesModel.Url = "/Home/HomePage";
+                pagesModel.Url = "/Home/Index";
                 return View("InfoViewPage", pagesModel);
             }
             else
@@ -85,7 +85,7 @@ namespace MyBlog.Mvc.UI.Controllers
                 PagesModel pagesModel = new PagesModel();
                 pagesModel.Header = "Success";
                 pagesModel.Items = new List<MessagesObj> { new MessagesObj { codes = MessagesCodes.Success, Messages = "İşlem Başarılı." } };
-                pagesModel.Url = "/Home/HomePage";
+                pagesModel.Url = "/Home/Index";
                 return View("InfoViewPage", pagesModel);
             }
         }

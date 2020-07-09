@@ -1,0 +1,22 @@
+﻿.circular--portrait {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-bottom: 35px;
+}
+
+    .circular--portrait img {
+        width: 100%;
+        height: auto;
+    }
+
+#footer {
+    bottom: 0px;
+}
+#userd
+{
+    margin-top:105px;
+}

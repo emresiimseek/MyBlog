@@ -1,0 +1,35 @@
+﻿@model List<Article>
+@using MyBlog.EntityFramework.Concrete
+@{
+    ViewBag.Title = "ListArticles";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminBaseLayout.cshtml";
+}
+
+<div id="main" class="col-sm-10 offset-2">
+    <a style="float:right;" href="/Admin/Article/Index" class="btn btn-success">Yazı Oluştur</a>
+    <br />
+    @using (Html.BeginForm())
+    {
+        if (Model != null)
+        {
+            foreach (Article article in Model)
+            {
+                <div style="display:inline-block;">
+                    <div class="card" style="width: 18rem;height:400px">
+                        <img style="width:280px;height:180px" class="card-img-top" src="~/Img/ArticlesImages/@article.ArticleImageName" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@article.Title</h5>
+                            <p style="height:90px" class="card-text">@article.Text</p>
+                            @Html.ActionLink("Görüntüle", "Index", "Article", new { id = article.Id }, new { @class = "btn btn-primary",style="float:inline-end" })
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+
+
+
+
+    }
+</div>

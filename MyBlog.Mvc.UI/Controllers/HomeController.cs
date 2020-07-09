@@ -1,4 +1,5 @@
 ﻿using FrameworkCore.Concrete;
+using FrameworkCore.Helpers;
 using MyBlog.Business.Abstract;
 using MyBlog.DataAccsess;
 using MyBlog.EntityFramework.Concrete;
@@ -11,7 +12,7 @@ using System.Web.Mvc;
 
 namespace MyBlog.Mvc.UI.Controllers
 {
-    [ExpFilter]
+    //[ExpFilter]
     public class HomeController : Controller
     {
         private IArticleService _articleService;

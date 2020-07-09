@@ -1,0 +1,101 @@
+﻿@model List<Article>
+
+@using myBlog.EntityFramework.Concrete
+@{
+    ViewBag.Title = "ArticlesPage";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<br />
+<section class="blog-posts grid-system">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="all-blog-posts">
+                    <div class="row">
+                        @foreach (Article article in Model)
+                        {
+
+                            <div class="col-lg-6">
+                                <div class="blog-post">
+                                    <div class="blog-thumb">
+                                        <a href="/Articles/GetArticleById?id=@article.Id"><img src="~/Img/ArticlesImages/@article.ArticleImageName" alt=""></a>
+                                    </div>
+                                    <div class="down-content">
+                                        <span>Lifestyle</span>
+                                        <a href="/Articles/GetArticleById?id=@article.Id"><h4>@article.Title</h4></a>
+                                        <ul class="post-info">
+                                            <li><a href="#">@article.ModifiedUsername</a></li>
+                                            <li><a href="#">@article.CreatedOn.ToString("dd.MM.yy HH:mm")</a></li>
+                                            <li><a href="#">12 Comments</a></li>
+                                        </ul>
+                                        <p>@article.Text <a href="/Articles/GetArticleById?id=@article.Id">Devamı...</a></p>
+                                        <div class="post-options">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <ul class="post-tags">
+                                                        <li><i class="fa fa-tags"></i></li>
+                                                        <li><a href="#">@article.Category.Title </a>,</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <ul class="post-share">
+                                                        <li><i class="fa fa-share-alt"></i></li>
+                                                        <li><a href="#">Facebook</a>,</li>
+                                                        <li><a href="#"> Twitter</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+                        <div class="col-lg-12">
+                            <ul class="page-numbers">
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="row">
+
+                        @Html.Partial("_SearchPartial")
+                        @Html.Action("GetLastArticle", "Articles")
+                        @Html.Action("GetCategories", "Category")
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section js
+    {
+    <script>
+        $("#article").addClass("nav-item active");
+        $("#about").removeClass("active");
+        $("#home").removeClass("active");
+        $("#contact").removeClass("active");
+        $(".push").css("height", "260px");
+    </script>
+
+}
+
+
+
+
+
+

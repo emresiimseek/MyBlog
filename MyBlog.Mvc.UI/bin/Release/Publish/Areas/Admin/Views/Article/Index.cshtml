@@ -1,0 +1,67 @@
+﻿@model MyBlog.EntityFramework.Concrete.Article
+@using MyBlog.EntityFramework.Concrete
+
+@{
+    /**/
+    Layout = "~/Areas/Admin/Views/Shared/_AdminBaseLayout.cshtml";
+}
+
+@{User user = Session["user"] as User;}
+<div id="main" class="col-sm-10 offset-2">
+    <div class="row">
+        <div class="col-md-12">
+            <section id="loginForm">
+                @using (Html.BeginForm("Index", "Article", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                {
+                    @Html.ValidationSummary(false)
+                    @Html.AntiForgeryToken()
+
+                    <div class="col-sm-6">
+                        @Html.LabelFor(x => Model.Title)
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Yazı Başlığı" })
+                        @Html.LabelFor(x => Model.Text)
+                        @Html.TextAreaFor(m => m.Text, new { @class = "form-control", placeholder = "Yazı Hakkında" })
+                        @Html.LabelFor(x => Model.CategoryId)
+                        @Html.DropDownListFor(m => Model.CategoryId, new SelectList(Session["cat"] as List<Category>
+                        , "Id", "Title"), "Lütfen Kategori seçiniz.", new { @class = "form-control" })
+                        @Html.LabelFor(x => Model.ArticleImageName)
+                        <input type="file" name="ArticleImage" id="ArticleImage" class="form-control" />
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        <span><i style="font-size:small;">Sadece Jpg ve Png dosya formatları kullanınız.</i></span><br />
+                    </div>
+                    <div class="form-group">
+                        <br />
+                        <label class="col-md-4 control-label">Sayfa İçeriği</label>
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                @Html.TextAreaFor(m => m.HtmlPage.html_content, new { @id = "summernote" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Kaydet" class="btn btn-success" name="Tıkla" />
+
+                        </div>
+                    </div>
+
+
+
+
+                }
+
+            </section>
+        </div>
+    </div>
+</div>
+
+@section summernote
+    {
+    $('#summernote').summernote({
+    placeholder: 'Hello Bootstrap 4',
+    tabsize: 2,
+    height: 400
+    });
+
+}

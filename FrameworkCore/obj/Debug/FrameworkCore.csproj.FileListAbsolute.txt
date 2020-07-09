@@ -84,3 +84,5 @@ C:\Users\Emre\source\repos\Blog\FrameworkCore\bin\Debug\System.ValueTuple.dll
 C:\Users\Emre\source\repos\Blog\FrameworkCore\bin\Debug\AutoMapper.pdb
 C:\Users\Emre\source\repos\Blog\FrameworkCore\bin\Debug\AutoMapper.xml
 C:\Users\Emre\source\repos\Blog\FrameworkCore\bin\Debug\System.ValueTuple.xml
+C:\Users\Emre\source\repos\Blog\FrameworkCore\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Emre\source\repos\Blog\FrameworkCore\bin\Debug\BouncyCastle.Crypto.xml

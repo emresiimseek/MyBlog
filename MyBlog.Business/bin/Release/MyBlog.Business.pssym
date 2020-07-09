@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbols LinesOfCode="172" PostSharpLinesOfCode="0" xmlns="http://schemas.postsharp.org/2.0/symbols">
+  <Class Class="#1=T:[FrameworkCore]FrameworkCore.Aspect.PostSharp.CacheAspect.CacheAspect">
+    <Instance Declaration="#2=M:[MyBlog.Business]MyBlog.Business.Concrete.ArticleManager::GetCategories()" Id="c65895ffcfb56d92">
+      <Target>
+        <JoinPoint Advising="#1" Description="#3=Intercepted by OnInvoke" Ordinal="0" />
+      </Target>
+    </Instance>
+  </Class>
+  <Class Class="#4=T:[FrameworkCore]FrameworkCore.Aspect.PostSharp.LogAspect.LogAspect">
+    <Instance Declaration="#5=M:[MyBlog.Business]MyBlog.Business.Concrete.LoginManager::LoginControl(System.String, System.String)" Id="c65895ff0019c15c">
+      <Target>
+        <JoinPoint Advising="#4" Description="#6=Wrapped by advice(s) OnEntry, OnSuccess, OnException, OnExit" />
+      </Target>
+    </Instance>
+  </Class>
+  <Annotation Target="#7=M:[FrameworkCore]FrameworkCore.Aspect.PostSharp.LogAspect.LogAspect::OnEntry(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#8=2" Description="#9=PostSharp estimates that 2 line(s) of code are saved every time this advice is applied. Use the [LinesOfCodeAvoided] attribute on the aspect or specify the LinesOfCodeAvoided property on the advice attribute to override this value." />
+  <Annotation Target="#10=M:[PostSharp]PostSharp.Aspects.OnMethodBoundaryAspect::OnSuccess([PostSharp]PostSharp.Aspects.MethodExecutionArgs)" Arguments="#8" Description="#9" />
+  <Annotation Target="#11=M:[PostSharp]PostSharp.Aspects.OnMethodBoundaryAspect::OnExit([PostSharp]PostSharp.Aspects.MethodExecutionArgs)" Arguments="#8" Description="#9" />
+  <Annotation Target="#12=M:[PostSharp]PostSharp.Aspects.OnMethodBoundaryAspect::OnException([PostSharp]PostSharp.Aspects.MethodExecutionArgs)" Arguments="#8" Description="#9" />
+</Symbols>

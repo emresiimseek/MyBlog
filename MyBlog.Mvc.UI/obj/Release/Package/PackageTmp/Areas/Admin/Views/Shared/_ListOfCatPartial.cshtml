@@ -1,0 +1,18 @@
+﻿@model MyBlog.Mvc.UI.Models.Categories
+@using MyBlog.EntityFramework.Concrete
+
+<button class="dropdown-btn">
+    Kategoriler
+    <i  class="fa fa-list fa-style fa-icon " aria-hidden="true"></i>
+</button>
+<div class="dropdown-container">
+    @foreach (Category cat in Model.categories)
+    {
+        @Html.ActionLink(cat.Title, "GetByCatId", "AdminCategory", new { id = cat.Id }, new { @id = "down" })
+        @*<a href="/Admin/AdminCategory/GetByCatId?id=@cat.Id">@cat.Title</a>*@
+    }
+    <a href="/Admin/AdminCategory/Create">
+        Kategori Oluştur
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    </a>
+</div>

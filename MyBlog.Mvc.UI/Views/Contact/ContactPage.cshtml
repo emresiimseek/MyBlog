@@ -16,7 +16,7 @@
                         <div class="col-lg-8">
                             <div class="sidebar-item contact-form">
                                 <div class="sidebar-heading">
-                                    <h2>Send us a message</h2>
+                                    <h2>BİR MESAJ GÖNDER</h2>
                                 </div>
                                 <div class="content">
                                     @using (Html.BeginForm())
@@ -31,8 +31,8 @@
                                             </div>
                                             <div class="col-md-6 col-sm-12">
                                                 <fieldset>
-                                                    @Html.TextBoxFor(m => m.toMail, new { @class = "form-control", placeholder = "E-posta adresiniz" })
-                                                    @Html.ValidationMessageFor(model => model.toMail, "", new { @class = "text-danger" })
+                                                    @Html.TextBoxFor(m => m.from, new { @class = "form-control", placeholder = "E-posta adresiniz" })
+                                                    @Html.ValidationMessageFor(model => model.from, "", new { @class = "text-danger" })
                                                 </fieldset>
                                             </div>
                                             <div class="col-md-12 col-sm-12">
@@ -63,24 +63,17 @@
                         <div class="col-lg-4">
                             <div class="sidebar-item contact-information">
                                 <div class="sidebar-heading">
-                                    <h2>contact information</h2>
+                                    <h2>İLETİŞİM BİLGİLERİ</h2>
                                 </div>
                                 <div class="content">
                                     <ul>
                                         <li>
-                                            <h5>090-484-8080</h5>
-                                            <span>PHONE NUMBER</span>
+                                            <h5>info@emresimsek.website</h5>
+                                            <span>EMAIL ADRES</span>
                                         </li>
                                         <li>
-                                            <h5>info@company.com</h5>
-                                            <span>EMAIL ADDRESS</span>
-                                        </li>
-                                        <li>
-                                            <h5>
-                                                123 Aenean id posuere dui,
-                                                <br>Praesent laoreet 10660
-                                            </h5>
-                                            <span>STREET ADDRESS</span>
+                                            <h5>emresimseka@gmail.com</h5>
+                                            <span>EMAIL ADRES</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -100,7 +93,7 @@
         $("#article").removeClass("active");
         $("#home").removeClass("active");
         $("#about").removeClass("active");
-        //$("#footer").addClass("footer");
+        $(".push").css("height", "28%");
     </script>
 
 }

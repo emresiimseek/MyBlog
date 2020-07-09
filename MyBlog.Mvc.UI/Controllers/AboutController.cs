@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MyBlog.Mvc.UI.Controllers
 {
-    [ExpFilter]
+    //[ExpFilter]
     public class AboutController : Controller
     {
       

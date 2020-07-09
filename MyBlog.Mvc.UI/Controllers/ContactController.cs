@@ -1,4 +1,5 @@
-﻿using MyBlog.Business.Abstract;
+﻿using FrameworkCore.Helpers;
+using MyBlog.Business.Abstract;
 using MyBlog.Mvc.UI.Models;
 using System;
 using System.Collections.Generic;
@@ -27,34 +28,16 @@ namespace MyBlog.Mvc.UI.Controllers
         {
             if (ModelState.IsValid == true)
             {
-                bool result = false;
-                WebMail.SmtpServer = "smtp.gmail.com";
-                WebMail.SmtpPort = 587;
-                WebMail.UserName = "emresimseka@gmail.com";
-                WebMail.Password = "dYorK5sr";
-                WebMail.EnableSsl = true;
-
                 try
                 {
-                    WebMail.
-                        Send(
-                        to: "emresimseka@gmail.com", subject: mailOfView.subject,
-                        body: mailOfView.body + " " + mailOfView.toMail+"|"+ mailOfView.Name +','+ "tarafından gönderildi."
-                        );
-                    result = true;
+                    MailHelper.SendMail(String.Format("{0}</br> {1} tarafından gödnerilmiştir. ", mailOfView.body,mailOfView.from),"info@emresimsek.website", mailOfView.subject,true);
                     ViewBag.res = "E-Postanız başarılı bir şekilde gönderilmiştir.";
-
                 }
                 catch (Exception)
                 {
-
                     ViewBag.res = "Bir hata alındı.";
                 }
-
-                ViewBag.result = result;
             }
-
-
             return View();
         }
 

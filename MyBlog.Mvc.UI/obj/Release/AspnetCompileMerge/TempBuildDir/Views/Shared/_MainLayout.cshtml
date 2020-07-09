@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+@using System.Web.Optimization
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    @Scripts.Render("~/js/all")
+    @Styles.Render("~/css/all")
+    @Scripts.Render("~/temp/js/all")
+    @{
+        string js = string.Empty;
+        if (Session["user"] != null)
+        {
+            var id = Session["id"];
+
+            js = "id=" + id;
+        }
+
+    }
+
+    <script>
+
+    $(function () {
+    @RenderSection("allblogpost", required: false)
+    /**/
+    $('#txt_veri').on('keypress', function (e) {
+        if (e.which === 13) {
+
+            //Disable textbox to prevent multiple submit
+            $(this).attr("disabled", "disabled");
+
+            var dat = $("#txt_veri").val();
+            $.ajax({
+                method: "GET",
+                url: "/Articles/GetArticles",
+                data: { veri: dat }
+            }).done(function (a) {
+                $("#main").html(a);
+                //$("#leftpanel").html(d);
+            });
+
+            //Enable the textbox again if needed.
+            $(this).removeAttr("disabled");
+        }
+    });
+
+    $("#pop").click(function () {
+        var id = null;
+
+    @Html.Raw(js);
+                /**/
+                $.ajax({
+                    method: "POST",
+                    url: "/Members/UserProfile",
+                    data: { model: id }
+                }).done(function (a) {
+                    var maininput = document.createElement("DIV");
+                    maininput.setAttribute("class", "col-sm-8");
+                    maininput.setAttribute("id", "userd");
+                    var val = document.createElement("DIV");
+                    val.setAttribute("id", "val");
+                    maininput.appendChild(val);
+                    var inppp = document.createElement("INPUT");
+                    inppp.setAttribute("type", "file");
+                    inppp.setAttribute("id", "fileToUpload");
+                    maininput.appendChild(inppp);
+                    for (var i in a) {
+
+                        if (i == "Profilephoto") {
+                            var img = document.createElement("IMG");
+                            img.setAttribute("src", "/uploads/Profile/" + a[i]);
+                            img.setAttribute("width", "100");
+                            img.setAttribute("height", "150");
+                            $("#pp").append(img);
+                        }
+
+                        if (i == "Name") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "Lastname") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "Username") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            maininput.appendChild(inp);
+                        }
+
+                        if (i == "Password") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "password");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "IsActive") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "checkbox");
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "checkbox-inline");
+                            inp.setAttribute("checked", a[i])
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "Email") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "email");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "ModifiedUsername") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            inp.setAttribute("style", "display:none")
+                            maininput.appendChild(inp);
+                        }
+                        if (i == "Id") {
+                            var inp = document.createElement("INPUT");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("value", a[i]);
+                            inp.setAttribute("id", "u" + i);
+                            inp.setAttribute("class", "form-control");
+                            inp.setAttribute("style", "display:none")
+                            maininput.appendChild(inp);
+                        }
+
+                    }
+                    $("#userd").replaceWith(maininput);
+                }).always(function () {
+
+                    $('#userModal').modal('show')
+                    $("#val").empty();
+                });
+            });
+
+
+            $(document).on('click', '.edit_data', function () {
+
+                if (window.FormData == undefined)
+                    alert("Error: FormData is undefined");
+                else {
+                    var files = $("#fileToUpload").get(0).files;
+                    var fileData = new FormData();
+                    fileData.append("file", files[0]);
+                    fileData.append("Id", $("#uId").val());
+                    fileData.append("Name", $("#uName").val());
+                    fileData.append("Lastname", $("#uLastname").val());
+                    fileData.append("ModifiedOn", new Date(Date.now()));
+                    fileData.append("ModifiedUsername", $("#uModifiedUsername").val());
+                    fileData.append("Username", $("#uUsername").val());
+                    fileData.append("Email", $("#uEmail").val());
+                    fileData.append("IsActive", $("#uIsActive").prop("checked"));
+                    fileData.append("ActivateGuid", $("#uActivateGuid").val());
+                    fileData.append("Password", $('#uPassword').val());
+                    $.ajax({
+                        url: '/Members/UpdateUser',
+                        type: 'post',
+                        datatype: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        data: fileData,
+                        success: function (e) {
+                            if (e['success'] == false) {
+                                var errors = e['errors'];
+                                displayValidationErrors(errors)
+                            }
+                            else {
+                                displayValidationErrors("Kaydınız başarılı bir şekilde gerçekleşmiştir.")
+                            }
+                        }
+                    });
+                }
+            });
+
+            $("#form-submit").click(function () {
+                var comment = new Object();
+                comment.Text = $('#message').val();
+                comment.UserId = $("#userId").val();
+                comment.ArticleId = $("#articleId").val();
+                $.ajax({
+                    method: "POST",
+                    url: "/Comments/AddComment",
+                    data: JSON.stringify(comment),
+                    contentType: "application/json",
+                    success: function (d) {
+                        $("#com").append(d);
+                    }
+                });
+
+            });
+
+            function displayValidationErrors(errors) {
+                var $ul = $('div.validation-summary-valid.text-danger > ul');
+
+                $ul.empty();
+                $.each(errors, function (idx, errorMessage) {
+                    $("#val").replaceWith('<li>' + errorMessage + '</li>');//try hear
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- Header -->
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand logo_tagline" title="YAZILIM |TEKNOLOJİ|ARAŞTIRMA" href="/Home/index"><h2>M<em>.</em>Emre Şimşek</h2></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li id="home" class="nav-item active">
+                            <a class="nav-link" href="/Home/index">
+                                Anasayfa
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li id="about" class="nav-item">
+                            <a class="nav-link" href="/About/about">Hakkımda</a>
+                        </li>
+                        <li id="article" class="nav-item">
+                            <a class="nav-link" href="/Articles/ArticlesPage">Yazılar</a>
+                        </li>
+                        <li id="contact" class="nav-item">
+                            <a class="nav-link" href="/Contact/ContactPage">İletişim</a>
+                        </li>
+                        </>
+
+                        @{
+                            User user = (User)Session["user"];
+                        }
+                        @if (user != null)
+                        {
+                            <li>
+                                @Html.Partial("_ProfilePartial")
+                            </li>
+                            <li>
+                                <div id="pop">
+
+                                    @if (user != null)
+                                    {
+                                        <p title="Profilinizi görüntülemek için tıklayınız." style="text-transform:uppercase;margin-top:5px;">  <i class="fa fa-user-circle-o" aria-hidden="true"></i>  @(user.Name + " " + @user.Lastname) </p>
+
+                                    }
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="/Login/SignOut">
+                                    <i style="color:red; margin-top:12px;margin-left:5px;" class="fa fa-sign-out" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li> <a style="margin-right:5px" class="btn btn-outline-warning my-2 my-sm-0 nav_brand" href="/Members/RegisterUser">Kaydol</a></li>
+
+                            <li><a class="btn btn-outline-success" href="/Login/LoginPage">Giriş</a> </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @RenderBody()
+    <div class="push"></div>
+
+    <footer class="py-3 bg-dark" id="footer">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+            <div class="social-buttons" style="text-align:center;">
+                <a href="https://twitter.com/emresimseka">  <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/muhammed-emre-%C5%9Fim%C5%9Fek-14a676136/">  <i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <!-- Additional Scripts -->
+    @Scripts.Render("~/temp/js")
+
+</body>
+</html>
+@RenderSection("js", required: false)
