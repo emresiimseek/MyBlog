@@ -26,6 +26,7 @@ namespace FrameworkCore.Concrete
             }
             identity = new Identity { Id = -1 };
         }
+
         public int Add(TEntity entity)
         {
             if (entity is IEntity)
@@ -52,33 +53,23 @@ namespace FrameworkCore.Concrete
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
             TContext context = SingletonContext<TContext>.CreateContext();
-            //TContext context = new TContext();
-
-            if (typeof(TEntity) == typeof(Article))
-            {
-               
-                return context.Set<TEntity>().Include("User").SingleOrDefault(filter);
-            }
-            else
-            {
-                User user= context.Set<TEntity>().SingleOrDefault(filter) as User;
-                return context.Set<TEntity>().SingleOrDefault(filter);
-            }
+            return context.Set<TEntity>().SingleOrDefault(filter);
         }
 
         public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
+
             TContext context = SingletonContext<TContext>.CreateContext();
             return filter == null ?
-                context.Set<TEntity>().ToList() :
-                context.Set<TEntity>().Where(filter).ToList();
+                    context.Set<TEntity>().ToList() :
+                    context.Set<TEntity>().Where(filter).ToList();
+            
         }
 
         public void Update(TEntity entity)
         {
             if (entity is IEntity)
             {
-
                 IEntity myEntity = entity as IEntity;
                 myEntity.ModifiedOn = DateTime.Now;
                 myEntity.ModifiedUsername = identity.Id.ToString();

@@ -21,17 +21,18 @@ namespace MyBlog.DataAccsess
         public DbSet<Category> Categories { get; set; }
         public DbSet<Html_Content_Result> Html_Content_Result { get; set; }
 
+       
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
         }
 
         public MyBlogContext()
         {
-           
-            Database.SetInitializer(new MyInitilazer());
+            Database.SetInitializer<MyBlogContext>(null);
+            //Database.SetInitializer(new MyInitilazer()); when you initilazer open this row 
         }
-
 
     }
 }

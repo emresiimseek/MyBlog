@@ -1,62 +1,59 @@
-﻿@font-face {
-    font-family: "Mohave-Medium";
-    src: url('/myfonts/Mohave-Medium.otf'); /* IE9 */
-}
+﻿    @font-face {
+        font-family: "Mohave-Medium";
+        src: url('/myfonts/Mohave-Medium.otf'); /* IE9 */
+    }
 
+    .pageContentWrapper {
+        margin-bottom: 120px; /* Height of footer*/
+    }
+    /*yazıtipi*/
+    body {
+        font-family: Mohave-Medium;
+        overflow-x: hidden;
+        /*text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin: 0;
+        padding: 0;*/
+        height: 100%;
+        margin: 0;
+    }
 
-.pageContentWrapper {
-    margin-bottom: 120px; /* Height of footer*/
-}
-/*yazıtipi*/
-body {
-    font-family: Mohave-Medium;
-    overflow-x: hidden;
-    /*text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin: 0;
-    padding: 0;*/
-    height: 100%;
-    margin: 0;
-}
-
-html {
-    height: 100%;
-    margin: 0;
-}
-
-
-
-a {
+    html {
+        height: 100%;
+        margin: 0;
+    }
     
-    color: #3fb0ac;
-}
+    a {
+        
+        color: #3fb0ac;
+    }
     a:hover {
         color: #173e43;
     }
-.bg-dark {
-    background-color: #173e43 !important;
-    bottom: 0;
-    bottom: 0;
-    flex: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background: #ccc;
-}
-.wrapper {
-    min-height: 100%;
-    /* Equal to height of footer */
-    /* But also accounting for potential margin-bottom of last child */
-    /*margin-bottom: 500px;*/
-}
+    .bg-dark {
+        background-color: #173e43 !important;
+        bottom: 0;
+        bottom: 0;
+        flex: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background: #ccc;
+    }
+    .wrapper {
+        min-height: 100%;
+        /* Equal to height of footer */
+        /* But also accounting for potential margin-bottom of last child */
+        /*margin-bottom: 500px;*/
+    }
 
-#footer{
-    height: 138px;
-}
-.push {
-    height: 50px;
-}
+    #footer{
+        height: 15%;
+    }
+    .push {
+        height: 10%;
+    }
 
 .btn-outline-success:hover {
     background-color: #3fb0ac;
@@ -68,15 +65,17 @@ a {
     color: #3fb0ac;
     border-color: #3fb0ac;
 }
-
-.btn-outline-warning:hover {
-    background-color: #173e43;
-    color: #3fb0ac;
-    border-color: #173e43;
-}
+    
+    .btn-outline-warning:hover {
+        background-color: #173e43;
+        color: #3fb0ac;
+        border-color: #173e43;
+    }
 .btn-outline-warning {
     /*background-color: #173e43;*/
     color: #173e43;
     border-color: #173e43;
+  
 }
-
+    
+    

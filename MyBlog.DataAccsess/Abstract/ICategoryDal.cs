@@ -10,5 +10,7 @@ namespace MyBlog.DataAccsess.Abstract
 {
     public interface ICategoryDal : IEntityRepository<Category>
     {
+         List<Category> GetCategoriesWithChild();
+
     }
 }

@@ -9,7 +9,7 @@
     <link href="~/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     @Scripts.Render("~/js/all")
     @Styles.Render("~/css/all")
-    @Scripts.Render("~/temp/js/all")
+   
     @{
         string js = string.Empty;
         if (Session["user"] != null)
@@ -26,6 +26,17 @@
     $(function () {
     @RenderSection("allblogpost", required: false)
     /**/
+        $("#search").click(function myfunction() {
+            var dat = $("#txt_veri").val();
+            $.ajax({
+                method: "GET",
+                url: "/Articles/GetArticles",
+                data: { veri: dat }
+            }).done(function (a) {
+                $("#main").html(a);
+                //$("#leftpanel").html(d);
+            });
+        });
     $('#txt_veri').on('keypress', function (e) {
         if (e.which === 13) {
 
@@ -74,7 +85,7 @@
                             img.setAttribute("src", "/uploads/Profile/" + a[i]);
                             img.setAttribute("width", "100");
                             img.setAttribute("height", "150");
-                            $("#pp").append(img);
+                            $(".im").replaceWith(img);
                         }
 
                         if (i == "Name") {
@@ -194,7 +205,11 @@
                 }
             });
 
-            $("#form-submit").click(function () {
+        $("#form-submit").click(function () {
+                var id = null;
+                @Html.Raw(js);
+
+            if (id != null) {
                 var comment = new Object();
                 comment.Text = $('#message').val();
                 comment.UserId = $("#userId").val();
@@ -208,6 +223,11 @@
                         $("#com").append(d);
                     }
                 });
+            }
+            else {
+                alert("Yorum yapabilmek için litfen üye olunuz!");
+            }
+             
 
             });
 
@@ -287,9 +307,8 @@
                         }
                         else
                         {
-                            <li> <a style="margin-right:5px" class="btn btn-outline-warning my-2 my-sm-0 nav_brand" href="/Members/RegisterUser">Kaydol</a></li>
-
-                            <li><a class="btn btn-outline-success" href="/Login/LoginPage">Giriş</a> </li>
+                            <li> <a style="margin-right:5px" class="btn btn-outline-warning my-2 my-sm-0 nav_brand " href="/Members/RegisterUser">Kaydol</a></li>
+                            <li><a class="btn btn-outline-success nitem" href="/Login/LoginPage">Giriş</a> </li>
                         }
 
 
@@ -315,7 +334,7 @@
         <!-- /.container -->
     </footer>
     <!-- Additional Scripts -->
-    @Scripts.Render("~/temp/js")
+    @Scripts.Render("~/temp/js/all")
 
 </body>
 </html>

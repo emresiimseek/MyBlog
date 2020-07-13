@@ -14,18 +14,20 @@ namespace MyBlog.DataAccsess.Concrete
     {
         public List<UsersRoleses> GetUsersRoleses(User user)
         {
-            using (MyBlogContext context = new MyBlogContext())
-            {
-                var result = from r in context.Users
-                             join ur in context.UsersRole on r.Id equals ur.User.Id
-                             select new UsersRoleses
-                             {
+            MyBlogContext context = SingletonContext<MyBlogContext>.CreateContext();
 
-                                 Roles = ur.Role.RoleName
-                             };
-                return result.ToList();
-            }
+            var result = from r in context.Users
+                         join ur in context.UsersRole on r.Id equals ur.User.Id
+                         select new UsersRoleses
+                         {
+
+                             Roles = ur.Role.RoleName
+                         };
+            return result.ToList();
+
 
         }
+
+
     }
 }

@@ -22,24 +22,24 @@ namespace MyBlog.Mvc.UI.Controllers
             _articleService = articleService;
             _categoryService = categoryService;
         }
-      
+
         public ActionResult Index()
         {
             if (TempData["Articles"] != null)
             {
                 List<Article> artics = new List<Article>();
-                artics= TempData["Articles"] as List<Article>;
+                artics = TempData["Articles"] as List<Article>;
                 return View(artics);
             }
-
-            Session["cat"] = _categoryService.GetCategories();
+            List<Category> category = _categoryService.GetCategoriesWithChild();
+            Session["cat"] = category;
             List<Article> articles = _articleService.GetArticles();
             return View(articles);
         }
         public PartialViewResult GetArticlesWithBanner()
         {
-            List<Article> articles= _articleService.GetArticles();
-            return PartialView("_ArticleBannerPartial",articles);
+            List<Article> articles = _articleService.GetArticles().ToList();
+            return PartialView("_ArticleBannerPartial", articles);
         }
 
 

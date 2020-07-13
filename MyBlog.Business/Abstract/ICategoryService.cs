@@ -14,5 +14,7 @@ namespace MyBlog.Business.Abstract
         void Update(Category category);
         int Add(Category category);
         int Delete(Category category);
+        List<Category> GetCategoriesWithChild();
+
     }
 }

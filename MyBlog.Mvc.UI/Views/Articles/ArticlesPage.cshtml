@@ -19,17 +19,17 @@
                             <div class="col-lg-6">
                                 <div class="blog-post">
                                     <div class="blog-thumb">
-                                        <a href="/Articles/GetArticleById?id=@article.Id"><img src="~/Img/ArticlesImages/@article.ArticleImageName" alt=""></a>
+                                        <a href="/Articles/ArticleDetail?id=@article.Id"><img src="~/Img/ArticlesImages/@article.ArticleImageName" alt=""></a>
                                     </div>
                                     <div class="down-content">
-                                        <span>Lifestyle</span>
-                                        <a href="/Articles/GetArticleById?id=@article.Id"><h4>@article.Title</h4></a>
+                                        <span>@article.Category.Title</span>
+                                        <a href="/Articles/ArticleDetail?id=@article.Id"><h4>@article.Title</h4></a>
                                         <ul class="post-info">
                                             <li><a href="#">@article.ModifiedUsername</a></li>
                                             <li><a href="#">@article.CreatedOn.ToString("dd.MM.yy HH:mm")</a></li>
                                             <li><a href="#">12 Comments</a></li>
                                         </ul>
-                                        <p>@article.Text <a href="/Articles/GetArticleById?id=@article.Id">Devamı...</a></p>
+                                        <p>@article.Text <a href="/Articles/ArticleDetail?id=@article.Id">Devamı...</a></p>
                                         <div class="post-options">
                                             <div class="row">
                                                 <div class="col-6">

@@ -19,7 +19,7 @@ namespace MyBlog.Business.Concrete
         public List<Category> GetCategories()
         {
 
-            return _categoryDal.GetAll();
+            return _categoryDal.GetAll().ToList();
 
         }
         public int AddCategory(Category category)
@@ -46,5 +46,11 @@ namespace MyBlog.Business.Concrete
         {
             return _categoryDal.Delete(category);
         }
+        public List<Category> GetCategoriesWithChild()
+        {
+            return _categoryDal.GetCategoriesWithChild();
+        }
+
+     
     }
 }

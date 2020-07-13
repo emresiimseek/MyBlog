@@ -12,6 +12,7 @@ using FrameworkCore.CrossCuttingConcerns.Security.Web;
 using FrameworkCore.Utilities.Mvc.Infrastructure;
 using MyBlog.Business.DependencyResolvers.Ninject;
 using MyBlog.Mvc.UI.App_Start;
+using System.Data.Entity;
 
 namespace MyBlog.Mvc.UI
 {
@@ -23,6 +24,7 @@ namespace MyBlog.Mvc.UI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterRoutes(BundleTable.Bundles);
+            Database.SetInitializer<MyBlog.DataAccsess.MyBlogContext>(null);
             ControllerBuilder.Current.SetControllerFactory(new NinjectControlerFactory(new BusinessModule()));
         }
         //protected void Application_BeginRequest()

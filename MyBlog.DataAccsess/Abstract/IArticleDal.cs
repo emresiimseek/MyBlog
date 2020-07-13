@@ -3,6 +3,7 @@ using MyBlog.EntityFramework.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,8 @@ namespace MyBlog.DataAccsess.Abstract
     {
         IQueryable<Article> GetLastArticle();
         int GetImageCount();
+        Article GetArticleWithUser(Expression<Func<Article, bool>> filter);
+        List<Article> GetArticlesWithUser(Expression<Func<Article, bool>> filter=null);
 
     }
 }

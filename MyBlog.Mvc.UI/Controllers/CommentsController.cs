@@ -28,13 +28,13 @@ namespace MyBlog.Mvc.UI.Controllers
 
         public PartialViewResult AddComment(Comment comment)
         {
+           
             BusinessLayerResult<Comment> businessLayerResult = new BusinessLayerResult<Comment>();
             if (Session["user"] != null)
             {
                 User user = Session["user"] as User;
                 comment.UserId = user.Id;
             }
-            
             businessLayerResult = _commentService.AddComment(comment);
             Article article= _articleService.GetArticle(comment.ArticleId);
             article.CommentCount += 1;

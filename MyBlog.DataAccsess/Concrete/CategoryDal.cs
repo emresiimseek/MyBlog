@@ -11,5 +11,12 @@ namespace MyBlog.DataAccsess.Concrete
 {
     public class CategoryDal : EntityRepositoryBase<Category, MyBlogContext>, ICategoryDal
     {
+        public List<Category> GetCategoriesWithChild()
+        {
+            using (MyBlogContext context = new MyBlogContext())
+            {
+                return context.Categories.Include("Articles").ToList();
+            };
+        }
     }
 }

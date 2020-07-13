@@ -30,12 +30,12 @@ namespace MyBlog.Business.Concrete
  
         public List<Article> GetArticles()
         {
-            return _articleDal.GetAll();
+            return _articleDal.GetArticlesWithUser();
         }
 
         public Article GetArticle(int? id)
         {
-            return _articleDal.Get(a => a.Id == id);
+            return _articleDal.GetArticleWithUser(a => a.Id == id);
         }
         [CacheAspect(typeof(MemoryCacheManager), cacheByMunite: 60)]
         public List<Category> GetCategories()

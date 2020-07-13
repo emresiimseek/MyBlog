@@ -1,15 +1,10 @@
 /* 
-
-TemplateMo 551 Stand Blog
-
-https://templatemo.com/tm-551-stand-blog
-
-*/
-
-
-
-
-
+    
+    TemplateMo 551 Stand Blog
+    
+    https://templatemo.com/tm-551-stand-blog
+    
+    */
 p {
     margin-bottom: 0px;
     font-size: 15px;
@@ -21,6 +16,7 @@ p {
 a {
     text-decoration: none !important;
 }
+
 
 ul {
     padding: 0;
@@ -166,15 +162,15 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /*.logo_tagline {
-    font-family: "Playfair Display";
-    text-transform: uppercase;
-    line-height: 15px;
-    letter-spacing: 3px;
-    font-weight: 400;
-    font-style: normal;
-    color: #000000;
-    font-size: 13px;
-}*/
+        font-family: "Playfair Display";
+        text-transform: uppercase;
+        line-height: 15px;
+        letter-spacing: 3px;
+        font-weight: 400;
+        font-style: normal;
+        color: #000000;
+        font-size: 13px;
+    }*/
 
 #pop p:hover, #pop p i:hover {
     color: #3fb0ac;
@@ -1006,8 +1002,6 @@ ul.page-numbers {
     .owl-banner .item .item-content h4 {
         font-size: 20px;
     }
-
-
 }
 
 @media (min-width: 768px) {
@@ -1032,13 +1026,22 @@ ul.page-numbers {
         width: 60%;
         margin-top: 110px;
     }
+
     .modal-dialog-scrollable .modal-body {
         overflow-y: visible;
+    }
+
+    #footer {
+        height: 20%;
     }
 }
 
 @media (max-width: 992px) {
 
+    .nitem
+    {
+        margin-bottom:5px;
+    }
     .owl-carousel .owl-item {
         height: 300px;
     }
