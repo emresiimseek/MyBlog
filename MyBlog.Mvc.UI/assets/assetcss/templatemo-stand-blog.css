@@ -1024,10 +1024,10 @@ ul.page-numbers {
         
     }
     .push {
-        height: 15%;
+        height: 18%;
     }
     #footer {
-        height: 20%;
+        height: 25%;
     }
 
     .carousel-inner .carousel-item {
@@ -1054,6 +1054,7 @@ ul.page-numbers {
 
 @media (max-width: 992px) {
 
+   
     .nitem
     {
         margin-bottom:5px;
@@ -1169,4 +1170,11 @@ ul.page-numbers {
 
 
 
+
+}
+@media (max-width: 1024px) 
+{
+    .owl-carousel .owl-item {
+        height: 300px;
+    }
 }
