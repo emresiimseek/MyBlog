@@ -12,13 +12,13 @@ namespace MyBlog.Mvc.UI.App_Start
         {
             bundles.Add(new StyleBundle("~/css/all").Include(
                 "~/Content/bootstrap.min.css",
-                "~/assets/assetcss/custom.css",
                 "~/assets/assetcss/templatemo-stand-blog.css",
                 "~/assets/assetcss/flex-slider.css",
                 "~/assets/assetcss/owl.css",
                 "~/assets/assetcss/social-buttons.css",
                 "~/Content/css/main-layout.css"
                 ));
+            bundles.Add(new StyleBundle("~/css/custom").Include("~/assets/assetcss/custom.css"));
 
 
             bundles.Add(new StyleBundle("~/bundles/fontawesome").Include("~/Content/css/font-awesome.min.css", new CssRewriteUrlTransform()));

@@ -7,9 +7,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="~/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
     @Scripts.Render("~/js/all")
     @Styles.Render("~/css/all")
-   
+    <link href="~/assets/assetcss/custom.css" rel="stylesheet" />
     @{
         string js = string.Empty;
         if (Session["user"] != null)
@@ -227,7 +228,7 @@
             else {
                 alert("Yorum yapabilmek için litfen üye olunuz!");
             }
-             
+
 
             });
 

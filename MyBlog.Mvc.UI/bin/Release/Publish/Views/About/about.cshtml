@@ -1,10 +1,5 @@
 ﻿@model MyBlog.Mvc.UI.Models.FileModel
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="TemplateMo">
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
-
 @{
     ViewBag.Title = "About Page";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -15,15 +10,40 @@
 <section class="about-us">
     <div class="container">
 
-        <div class="row">
-            <div class="col-lg-12">
-                <br />
-                <p>Merhaba,Ben Muhammed Emre Şimşek.</p>
+        <br />
+        <br />
+        <br />
+        <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="~/Img/about.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="~/Img/DSC_0282.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="~/Img/lux.jpg" alt="Third slide">
+                </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
 
-
-
+        <p>
+            Merhaba,Ben Emre.<br />
+            Kısaca kendimdem bahsetmem gerekirse Yönetim Bilişim Sistemleri Uzmanı ve Yazılım Geliştiricisiyim.
+            Kendimi bildim bileli teknoloji ilgi alanımdı.Lisede Bilişim Teknolojileri bölümü okumamla yeşeren bu merakım Yönetim Bilişim Sistemleri lisans eğitimim ile taçlanarak bugüne dek süregeldi.
+            Aktif olarak Web uygulamaları,Web Service Uygulamaları,Masastü Uygulamaları ve Mobil Uygulamaları geliştirmekteyim.
+            Dünyanın farklı yerlerine sehayetler ederek farklı deneyimler edinmek,yeni insanlar ile tanışmak,farklı kültürler,yeni lezzetler kefşetmek her zaman bir tutkum oldu.
+            Burada da biraz hayatımdan,seyahetlerimden,biraz araştırmalarımdan  ve ilgi alanlarıma dair paylaşımlarım ile buluşacaksınız.<br />
+            Yazılarda görüşmek üzere :)
+        </p>
     </div>
 </section>
 
@@ -39,7 +59,10 @@
         $("#article").removeClass("active");
         $("#home").removeClass("active");
         $("#contact").removeClass("active");
-        $(".push").css("height", "60%");
+        $(".push").css("height", "5%");
+        $('.carousel').carousel({
+            interval: 5000
+        })
     </script>
 
 }

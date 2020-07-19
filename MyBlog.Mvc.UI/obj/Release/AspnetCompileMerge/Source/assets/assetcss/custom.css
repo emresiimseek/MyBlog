@@ -22,6 +22,7 @@
     html {
         height: 100%;
         margin: 0;
+        font-size:16px;
     }
     
     a {
@@ -48,12 +49,7 @@
         /*margin-bottom: 500px;*/
     }
 
-    #footer{
-        height: 15%;
-    }
-    .push {
-        height: 10%;
-    }
+
 
 .btn-outline-success:hover {
     background-color: #3fb0ac;
@@ -77,5 +73,6 @@
     border-color: #173e43;
   
 }
+
     
     

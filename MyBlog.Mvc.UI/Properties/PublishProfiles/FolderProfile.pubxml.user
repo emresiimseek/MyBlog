@@ -61,7 +61,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/26/2020 19:49:01</publishTime>
     </File>
     <File Include="assets/assetcss/custom.css">
-      <publishTime>07/11/2020 20:30:08</publishTime>
+      <publishTime>07/19/2020 22:04:20</publishTime>
     </File>
     <File Include="assets/assetcss/flex-slider.css">
       <publishTime>07/08/2020 18:03:38</publishTime>
@@ -73,7 +73,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/08/2020 18:03:38</publishTime>
     </File>
     <File Include="assets/assetcss/templatemo-stand-blog.css">
-      <publishTime>07/11/2020 20:32:10</publishTime>
+      <publishTime>07/19/2020 22:38:38</publishTime>
     </File>
     <File Include="assets/images/about-us.jpg">
       <publishTime>06/26/2020 19:43:12</publishTime>
@@ -160,10 +160,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/13/2020 00:31:41</publishTime>
+      <publishTime>07/19/2020 22:39:15</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/13/2020 00:31:41</publishTime>
+      <publishTime>07/19/2020 22:39:14</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
       <publishTime>06/18/2018 13:00:14</publishTime>
@@ -184,13 +184,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/29/2020 16:10:44</publishTime>
     </File>
     <File Include="bin/FrameworkCore.dll">
-      <publishTime>07/13/2020 00:16:04</publishTime>
+      <publishTime>07/19/2020 19:41:48</publishTime>
     </File>
     <File Include="bin/FrameworkCore.dll.config">
       <publishTime>07/08/2020 08:29:58</publishTime>
     </File>
     <File Include="bin/FrameworkCore.pdb">
-      <publishTime>07/13/2020 00:16:04</publishTime>
+      <publishTime>07/19/2020 19:41:48</publishTime>
     </File>
     <File Include="bin/Google.Protobuf.dll">
       <publishTime>08/10/2018 18:51:54</publishTime>
@@ -214,34 +214,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MyBlog.Business.dll">
-      <publishTime>07/13/2020 00:29:55</publishTime>
+      <publishTime>07/19/2020 19:41:49</publishTime>
     </File>
     <File Include="bin/MyBlog.Business.dll.config">
       <publishTime>07/08/2020 08:29:58</publishTime>
     </File>
     <File Include="bin/MyBlog.Business.pdb">
-      <publishTime>07/13/2020 00:29:55</publishTime>
+      <publishTime>07/19/2020 19:41:49</publishTime>
     </File>
     <File Include="bin/MyBlog.DataAccsess.dll">
-      <publishTime>07/13/2020 00:29:54</publishTime>
+      <publishTime>07/19/2020 19:41:48</publishTime>
     </File>
     <File Include="bin/MyBlog.DataAccsess.dll.config">
       <publishTime>07/08/2020 08:29:58</publishTime>
     </File>
     <File Include="bin/MyBlog.DataAccsess.pdb">
-      <publishTime>07/13/2020 00:29:54</publishTime>
+      <publishTime>07/19/2020 19:41:48</publishTime>
     </File>
     <File Include="bin/MyBlog.EntityFramework.dll">
-      <publishTime>07/13/2020 00:16:03</publishTime>
+      <publishTime>07/19/2020 19:27:27</publishTime>
     </File>
     <File Include="bin/MyBlog.EntityFramework.pdb">
-      <publishTime>07/13/2020 00:16:03</publishTime>
+      <publishTime>07/19/2020 19:27:27</publishTime>
     </File>
     <File Include="bin/MyBlog.Mvc.UI.dll">
-      <publishTime>07/13/2020 00:31:38</publishTime>
+      <publishTime>07/19/2020 22:39:10</publishTime>
     </File>
     <File Include="bin/MyBlog.Mvc.UI.pdb">
-      <publishTime>07/13/2020 00:31:38</publishTime>
+      <publishTime>07/19/2020 22:39:10</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
       <publishTime>03/17/2020 10:36:28</publishTime>
@@ -478,7 +478,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/26/2020 19:45:54</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.css">
-      <publishTime>07/02/2020 12:14:44</publishTime>
+      <publishTime>07/19/2020 19:18:16</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.css.map">
       <publishTime>07/02/2020 12:14:44</publishTime>
@@ -508,7 +508,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/08/2020 17:40:15</publishTime>
     </File>
     <File Include="Content/css/main-layout.css">
-      <publishTime>07/08/2020 17:40:15</publishTime>
+      <publishTime>07/19/2020 22:14:27</publishTime>
     </File>
     <File Include="Content/Errorpagecss/error.css">
       <publishTime>07/02/2020 12:14:46</publishTime>
@@ -658,7 +658,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/08/2020 18:01:14</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/13/2020 00:31:39</publishTime>
+      <publishTime>07/19/2020 22:39:11</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>06/26/2020 19:45:54</publishTime>
@@ -1465,13 +1465,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/26/2020 19:43:13</publishTime>
     </File>
     <File Include="Views/About/about.cshtml">
-      <publishTime>07/10/2020 14:29:23</publishTime>
+      <publishTime>07/19/2020 22:38:18</publishTime>
     </File>
     <File Include="Views/Articles/ArticleDetail.cshtml">
       <publishTime>07/10/2020 14:14:05</publishTime>
     </File>
     <File Include="Views/Articles/ArticlesPage.cshtml">
-      <publishTime>07/10/2020 12:25:17</publishTime>
+      <publishTime>07/19/2020 22:18:38</publishTime>
     </File>
     <File Include="Views/Articles/GetArticleById.cshtml">
       <publishTime>07/06/2020 10:29:41</publishTime>
@@ -1519,7 +1519,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/09/2020 23:49:48</publishTime>
     </File>
     <File Include="Views/Shared/_MainLayout.cshtml">
-      <publishTime>07/12/2020 11:20:34</publishTime>
+      <publishTime>07/19/2020 21:02:40</publishTime>
     </File>
     <File Include="Views/Shared/_ProfilePartial.cshtml">
       <publishTime>07/12/2020 11:19:33</publishTime>

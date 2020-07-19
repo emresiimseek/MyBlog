@@ -978,10 +978,15 @@ ul.page-numbers {
 
 /* Responsive Style */
 
-@media (max-width: 1080px) {
 
 
-
+@media (min-width: 768px) {
+    #userd {
+        margin-top: 105px;
+    }
+    .carousel-inner .carousel-item {
+        height: 450px;
+    }
     .owl-carousel .owl-item {
         height: 10px;
         height: 550px;
@@ -1002,17 +1007,32 @@ ul.page-numbers {
     .owl-banner .item .item-content h4 {
         font-size: 20px;
     }
-}
-
-@media (min-width: 768px) {
-    #userd {
-        margin-top: 105px;
+    .push {
+        height: 10%;
+    }
+    #footer {
+        height: 15%;
     }
 }
 
 
 
 @media (max-width: 768px) {
+
+    .carousel-indicators li
+    {
+        
+    }
+    .push {
+        height: 15%;
+    }
+    #footer {
+        height: 20%;
+    }
+
+    .carousel-inner .carousel-item {
+        height: 140px;
+    }
     .owl-banner .owl-nav {
         display: none;
     }
@@ -1029,10 +1049,6 @@ ul.page-numbers {
 
     .modal-dialog-scrollable .modal-body {
         overflow-y: visible;
-    }
-
-    #footer {
-        height: 20%;
     }
 }
 
@@ -1150,4 +1166,7 @@ ul.page-numbers {
         .blog-posts .down-content p a:hover {
             color: #3fb0ac;
         }
+
+
+
 }
