@@ -57,30 +57,34 @@ namespace MyBlog.Mvc.UI.Areas.Admin.Controllers
             BusinessLayerResult<Article> res = new BusinessLayerResult<Article>();
             res.Result = model;
 
-            if (ArticleImage != null && (ArticleImage.ContentType == "image/jpeg") || ArticleImage.ContentType == "image/jpg" || ArticleImage.ContentType == "image/png")
+            if (ArticleImage != null)
             {
-                _counter = _articleService.ImageCounter();
-                string filename = $"Article_{Imgcounter}.{ArticleImage.ContentType.Split('/')[1]}";
-                var newImage = new WebImage(ArticleImage.InputStream);
-                newImage.Save(Server.MapPath($"~/Img/ArticlesImages/{filename}"));
-                res.Result.ArticleImageName = filename;
-
-                var width = newImage.Width;
-                var height = newImage.Height;
-                if (width > height)
+                if ((ArticleImage.ContentType == "image/jpeg") || ArticleImage.ContentType == "image/jpg" || ArticleImage.ContentType == "image/png")
                 {
-                    var leftRightCrop = (((width - height) / 2) - 30);
-                    newImage.Crop(0, leftRightCrop, 0, leftRightCrop);
+                    _counter = _articleService.ImageCounter();
+                    string filename = $"Article_{Imgcounter}.{ArticleImage.ContentType.Split('/')[1]}";
+                    var newImage = new WebImage(ArticleImage.InputStream);
+                    newImage.Save(Server.MapPath($"~/Img/ArticlesImages/{filename}"));
+                    res.Result.ArticleImageName = filename;
 
+                    var width = newImage.Width;
+                    var height = newImage.Height;
+                    if (width > height)
+                    {
+                        var leftRightCrop = (((width - height) / 2) - 30);
+                        newImage.Crop(0, leftRightCrop, 0, leftRightCrop);
+
+                    }
+                    else if (height > width)
+                    {
+                        var topBottomCrop = (((height - width) / 2) + 30);
+                        newImage.Crop(topBottomCrop, 0, topBottomCrop, 0);
+                    }
+                    string[] fn = filename.Split('.');
+                    newImage.Save(Server.MapPath($"~/Img/ArticlesImages/{fn[0]}_banner_"));
                 }
-                else if (height > width)
-                {
-                    var topBottomCrop = (((height - width) / 2) + 30);
-                    newImage.Crop(topBottomCrop, 0, topBottomCrop, 0);
-                }
-                string[] fn = filename.Split('.');
-                newImage.Save(Server.MapPath($"~/Img/ArticlesImages/{fn[0]}_banner_"));
             }
+  
             ModelState.Remove("CreatedOn");
             ModelState.Remove("ModifiedOn");
             ModelState.Remove("ModifiedUsername");
@@ -118,6 +122,45 @@ namespace MyBlog.Mvc.UI.Areas.Admin.Controllers
 
 
             return View(articles);
+        }
+        //public ActionResult EditArticle(int? id)
+        //{
+        //    Session["cat"] = _categoryService.GetCategories();
+        //    Article article= _articleService.GetArticle(id);
+        //    return View(article);
+        //}
+        public ActionResult EditArticle(int? id)
+        {
+            Session["cat"] = _categoryService.GetCategories();
+            if (id != null)
+            {
+                Article art = _articleService.GetArticle(id);
+                return View(art);
+            }
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+        public ActionResult EditArticle(Article model, HttpPostedFileBase ArticleImage)
+        {
+            Article art = _articleService.GetArticle(model.Id);
+            BusinessLayerResult<Article> res = new BusinessLayerResult<Article>();
+            res.Result = model;
+            res.Result.ArticleImageName = art.ArticleImageName;
+            //TO:DO Image Update
+            ModelState.Remove("CreatedOn");
+            ModelState.Remove("ModifiedOn");
+            ModelState.Remove("ModifiedUsername");
+            if (ModelState.IsValid)
+            {
+
+                User user = Session["user"] as User;
+                res.Result.UserId = user.Id;
+                _articleService.Update(res);
+            }
+            return this.View(model);
         }
     }
 }

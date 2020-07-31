@@ -15,12 +15,12 @@
             foreach (Article article in Model)
             {
                 <div style="display:inline-block;">
-                    <div class="card" style="width: 18rem;height:400px">
+                    <div class="card" style="width: 18rem;">
                         <img style="width:280px;height:180px" class="card-img-top" src="~/Img/ArticlesImages/@article.ArticleImageName" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">@article.Title</h5>
-                            <p style="height:90px" class="card-text">@article.Text</p>
-                            @Html.ActionLink("Görüntüle", "Index", "Article", new { id = article.Id }, new { @class = "btn btn-primary",style="float:inline-end" })
+                            @Html.ActionLink("Görüntüle", "Index", "Article", new { id = article.Id }, new { @class = "btn btn-success", style = "float:inline-end" })
+                            @Html.ActionLink("Düzenle", "EditArticle", "Article", new { id = article.Id }, new { @class = "btn btn-warning", style = "float:inline-end" })
                         </div>
                     </div>
                 </div>

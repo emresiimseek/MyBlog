@@ -37,3 +37,4 @@ C:\Users\Emre\source\repos\Blog\MyBlog.EntityFramework\obj\Debug\MyBlog.EntityFr
 C:\Users\Emre\source\repos\Blog\MyBlog.EntityFramework\obj\Debug\MyBlog.EntityFramework.csproj.CopyComplete
 C:\Users\Emre\source\repos\Blog\MyBlog.EntityFramework\obj\Debug\MyBlog.EntityFramework.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.EntityFramework\obj\Debug\MyBlog.EntityFramework.pdb
+C:\Users\Emre\source\repos\Blog\MyBlog.EntityFramework\obj\Debug\MyBlog.EntityFramework.csprojAssemblyReference.cache

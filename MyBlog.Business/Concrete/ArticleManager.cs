@@ -64,6 +64,10 @@ namespace MyBlog.Business.Concrete
             businessLayerResult.AddError(MessagesCodes.Success, "Kayıt İşlemi başarılı.");
             return businessLayerResult;
         }
+        public void Update(BusinessLayerResult<Article> businessLayerResult)
+        {
+            _articleDal.Update(businessLayerResult.Result);
+        }
 
         public List<Article> GetLastArticle()
         {
