@@ -46,3 +46,5 @@ C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Release\MyBlog.Business.cspr
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Release\MyBlog.Business.dll.postsharp
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Release\MyBlog.Business.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Release\MyBlog.Business.pdb
+C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Release\MySql.Data.Entity.EF6.dll
+C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Release\MySql.Data.Entity.EF6.xml

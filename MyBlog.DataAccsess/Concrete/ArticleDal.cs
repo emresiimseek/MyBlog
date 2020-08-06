@@ -28,7 +28,7 @@ namespace MyBlog.DataAccsess.Concrete
         {
             using (MyBlogContext context = new MyBlogContext())
             {
-                return context.Set<Article>().Include("User").Include("Category").Include("HtmlPage").Include("Comments").Include("Likes").SingleOrDefault(filter);
+                return context.Set<Article>().Include("User").Include("User.Likes").Include("User.Comments").Include("Category").Include("Html_Content_Result").Include("Comments").Include("Likes").SingleOrDefault(filter);
             }
         }
         public List<Article> GetArticlesWithUser(Expression<Func<Article, bool>> filter)
@@ -36,9 +36,15 @@ namespace MyBlog.DataAccsess.Concrete
             using (MyBlogContext context = new MyBlogContext())
             {
                 return filter == null ?
-                          context.Set<Article>().Include("User").Include("Category").Include("HtmlPage").Include("Comments").Include("Likes").ToList() :
+                          context.Set<Article>().Include("User").Include("Category").Include("Html_Content_Result").Include("Comments").Include("Likes").ToList() :
                           context.Set<Article>().Include("User").Where(filter).ToList();
             };
+        }
+
+        public Article GetArticleAllChilds(Expression<Func<Article, bool>> filter)
+        {
+            MyBlogContext context = new MyBlogContext();
+                return context.Set<Article>().Include("User").Include("Category").Include("HtmlPage").Include("Comments").Include("Likes").SingleOrDefault(filter);
         }
     }
 }

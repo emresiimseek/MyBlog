@@ -27,10 +27,10 @@ namespace MyBlog.EntityFramework.Concrete
         public int CommentCount { get; set; }
         public virtual User User { get; set; }
         public virtual Category Category { get; set; }
-        [AllowHtml]
-        [Required]
-        [Display(Name = "HTML Content")]
-        public virtual Html_Content_Result HtmlPage { get; set; }
+
+        //[Required]
+        //[Display(Name = "HTML Content")]
+        public virtual Html_Content_Result Html_Content_Result { get; set; }
         public virtual List<Comment> Comments { get; set; }
         public virtual List<Liked> Likes { get; set; }
         

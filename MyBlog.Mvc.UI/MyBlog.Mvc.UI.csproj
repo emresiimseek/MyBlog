@@ -206,9 +206,6 @@
     <Content Include="font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Global.asax" />
-    <Content Include="Img\ArticlesImages\Article_0.png" />
-    <Content Include="Img\ArticlesImages\Article_5.jpeg" />
-    <Content Include="Img\ArticlesImages\Article_5_banner_.jpeg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -611,6 +608,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Img\ArticlesImages\" />
     <Folder Include="Views\Category\" />
     <Folder Include="Views\Comments\" />
   </ItemGroup>

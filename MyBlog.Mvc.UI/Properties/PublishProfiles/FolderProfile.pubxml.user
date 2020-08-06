@@ -22,10 +22,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/26/2020 19:49:01</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Article/EditArticle.cshtml">
-      <publishTime>08/01/2020 00:04:12</publishTime>
+      <publishTime>08/05/2020 14:53:29</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Article/Index.cshtml">
-      <publishTime>06/26/2020 21:19:07</publishTime>
+      <publishTime>08/05/2020 19:00:53</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Article/ListAllArticles.cshtml">
       <publishTime>07/31/2020 23:20:34</publishTime>
@@ -163,10 +163,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>08/01/2020 00:24:09</publishTime>
+      <publishTime>08/06/2020 20:05:19</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>08/01/2020 00:24:09</publishTime>
+      <publishTime>08/06/2020 20:05:19</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
       <publishTime>06/18/2018 13:00:14</publishTime>
@@ -187,13 +187,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/29/2020 16:10:44</publishTime>
     </File>
     <File Include="bin/FrameworkCore.dll">
-      <publishTime>07/31/2020 14:10:39</publishTime>
+      <publishTime>08/06/2020 20:04:18</publishTime>
     </File>
     <File Include="bin/FrameworkCore.dll.config">
       <publishTime>07/08/2020 08:29:58</publishTime>
     </File>
     <File Include="bin/FrameworkCore.pdb">
-      <publishTime>07/31/2020 14:10:39</publishTime>
+      <publishTime>08/06/2020 20:04:18</publishTime>
     </File>
     <File Include="bin/Google.Protobuf.dll">
       <publishTime>08/10/2018 18:51:54</publishTime>
@@ -217,37 +217,40 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MyBlog.Business.dll">
-      <publishTime>08/01/2020 00:24:01</publishTime>
+      <publishTime>08/06/2020 20:04:19</publishTime>
     </File>
     <File Include="bin/MyBlog.Business.dll.config">
-      <publishTime>07/08/2020 08:29:58</publishTime>
+      <publishTime>08/06/2020 19:05:33</publishTime>
     </File>
     <File Include="bin/MyBlog.Business.pdb">
-      <publishTime>08/01/2020 00:24:01</publishTime>
+      <publishTime>08/06/2020 20:04:19</publishTime>
     </File>
     <File Include="bin/MyBlog.DataAccsess.dll">
-      <publishTime>07/31/2020 14:10:39</publishTime>
+      <publishTime>08/06/2020 20:04:18</publishTime>
     </File>
     <File Include="bin/MyBlog.DataAccsess.dll.config">
-      <publishTime>07/08/2020 08:29:58</publishTime>
+      <publishTime>08/06/2020 19:05:33</publishTime>
     </File>
     <File Include="bin/MyBlog.DataAccsess.pdb">
-      <publishTime>07/31/2020 14:10:39</publishTime>
+      <publishTime>08/06/2020 20:04:18</publishTime>
     </File>
     <File Include="bin/MyBlog.EntityFramework.dll">
-      <publishTime>07/31/2020 14:10:38</publishTime>
+      <publishTime>08/06/2020 20:04:17</publishTime>
     </File>
     <File Include="bin/MyBlog.EntityFramework.pdb">
-      <publishTime>07/31/2020 14:10:38</publishTime>
+      <publishTime>08/06/2020 20:04:17</publishTime>
     </File>
     <File Include="bin/MyBlog.Mvc.UI.dll">
-      <publishTime>08/01/2020 00:24:03</publishTime>
+      <publishTime>08/06/2020 20:05:15</publishTime>
     </File>
     <File Include="bin/MyBlog.Mvc.UI.pdb">
-      <publishTime>08/01/2020 00:24:03</publishTime>
+      <publishTime>08/06/2020 20:05:15</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
       <publishTime>03/17/2020 10:36:28</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.Entity.EF6.dll">
+      <publishTime>07/10/2019 15:08:40</publishTime>
     </File>
     <File Include="bin/MySql.Data.EntityFramework.dll">
       <publishTime>07/07/2020 13:08:58</publishTime>
@@ -661,7 +664,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/08/2020 18:01:14</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/01/2020 00:24:05</publishTime>
+      <publishTime>08/06/2020 20:05:16</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>06/26/2020 19:45:54</publishTime>
@@ -1471,7 +1474,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2020 22:38:18</publishTime>
     </File>
     <File Include="Views/Articles/ArticleDetail.cshtml">
-      <publishTime>07/31/2020 23:00:35</publishTime>
+      <publishTime>08/05/2020 14:53:29</publishTime>
     </File>
     <File Include="Views/Articles/ArticlesPage.cshtml">
       <publishTime>07/19/2020 22:18:38</publishTime>
@@ -1534,7 +1537,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/26/2020 19:40:35</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/01/2020 00:24:04</publishTime>
+      <publishTime>08/06/2020 20:04:21</publishTime>
     </File>
   </ItemGroup>
 </Project>

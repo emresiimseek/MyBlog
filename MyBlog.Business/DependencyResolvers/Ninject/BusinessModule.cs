@@ -25,6 +25,7 @@ namespace MyBlog.Business.DependencyResolvers.Ninject
             Bind<IHtmlDisplayDal>().To<HtmlDisplayDal>();
             Bind<ICommentService>().To<CommentManager>();
             Bind<ICommentDal>().To<CommentDal>();
+            Bind<IHtmlContentDal>().To<HtmlContentDal>();
 
         }
     }

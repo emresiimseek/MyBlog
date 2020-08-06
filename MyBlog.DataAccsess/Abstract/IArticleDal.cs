@@ -14,6 +14,7 @@ namespace MyBlog.DataAccsess.Abstract
         IQueryable<Article> GetLastArticle();
         int GetImageCount();
         Article GetArticleWithUser(Expression<Func<Article, bool>> filter);
+        Article GetArticleAllChilds(Expression<Func<Article, bool>> filter);
         List<Article> GetArticlesWithUser(Expression<Func<Article, bool>> filter=null);
 
     }

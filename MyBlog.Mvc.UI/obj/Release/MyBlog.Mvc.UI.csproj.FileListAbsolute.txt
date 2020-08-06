@@ -130,3 +130,5 @@ C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\roslyn\System.Net.Http.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\roslyn\System.Net.Sockets.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\MySql.Data.Entity.EF6.dll
+C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\MySql.Data.Entity.EF6.xml

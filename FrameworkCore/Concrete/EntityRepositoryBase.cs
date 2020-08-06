@@ -63,7 +63,7 @@ namespace FrameworkCore.Concrete
             return filter == null ?
                     context.Set<TEntity>().ToList() :
                     context.Set<TEntity>().Where(filter).ToList();
-            
+
         }
 
         public void Update(TEntity entity)
@@ -74,11 +74,12 @@ namespace FrameworkCore.Concrete
                 myEntity.ModifiedOn = DateTime.Now;
                 myEntity.ModifiedUsername = identity.Id.ToString();
             }
-
-            TContext context = SingletonContext<TContext>.CreateContext();
+            TContext context = new TContext();
             var uptadedEntity = context.Entry(entity);
             uptadedEntity.State = EntityState.Modified;
             context.SaveChanges();
+
+
         }
     }
 }

@@ -130,3 +130,5 @@ C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\obj\Debug\MyBlog.Mvc.UI.csproj.Cop
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\obj\Debug\MyBlog.Mvc.UI.dll.postsharp
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\obj\Debug\MyBlog.Mvc.UI.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\obj\Debug\MyBlog.Mvc.UI.pdb
+C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\MySql.Data.Entity.EF6.dll
+C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\MySql.Data.Entity.EF6.xml

@@ -19,6 +19,6 @@ namespace MyBlog.Business.Abstract
         List<Article> GetLastArticle();
         int ImageCounter();
         void UpdateCommentCount(Article article);
-        void Update(BusinessLayerResult<Article> businessLayerResult);
+        void Update(Article article);
     }
 }

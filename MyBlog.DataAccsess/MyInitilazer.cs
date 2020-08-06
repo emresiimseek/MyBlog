@@ -11,6 +11,7 @@ namespace MyBlog.DataAccsess
     {
         protected override void Seed(MyBlogContext context)
         {
+
         }
     }
 }

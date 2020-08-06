@@ -87,3 +87,5 @@ C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Debug\MyBlog.Business.csproj
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Debug\MyBlog.Business.dll.postsharp
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Debug\MyBlog.Business.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Debug\MyBlog.Business.pdb
+C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\MySql.Data.Entity.EF6.xml
