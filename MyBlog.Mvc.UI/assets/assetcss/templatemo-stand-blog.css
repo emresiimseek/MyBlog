@@ -309,17 +309,21 @@ header {
 }
 
     .owl-banner .item {
-        position: relative;
+        /*position: relative;*/
+        display:flex;
+        align-items:center;
     }
 
         .owl-banner .item .item-content {
             position: absolute;
-            bottom: 40px;
+
+            top:60%;  
             left: 40px;
+
         }
 
             .owl-banner .item .item-content .meta-category span {
-                color: #173e43;
+                color: #e9dcca;
                 font-size: 18px;
                 text-transform: uppercase;
                 font-weight: 900;
@@ -329,7 +333,7 @@ header {
             .owl-banner .item .item-content h4 {
                 font-size: 24px;
                 font-weight: 900;
-                color: #173e43;
+                color: #dddfd4;
                 letter-spacing: 0.5px;
                 text-transform: capitalize;
                 margin: 10px 0px 12px 0px;
@@ -432,9 +436,9 @@ header {
 
 /* Blog Posts */
 
-.blog-posts {
-    margin-top: 100px;
-}
+    .blog-posts {
+        margin-top: 100px;
+    }
 
     .blog-posts .blog-post {
         margin-bottom: 30px;
@@ -980,52 +984,50 @@ ul.page-numbers {
 
 
 
-@media (min-width: 768px) {
-    #userd {
-        margin-top: 105px;
-    }
-    .carousel-inner .carousel-item {
-        height: 450px;
-    }
-    
+    @media (min-width: 768px) {
 
-    .owl-banner .owl-nav .owl-next {
-        right: 0px;
-    }
+        #userd {
+            margin-top: 105px;
+        }
 
-    .owl-banner .owl-nav button span {
-        width: 35px;
-    }
+        .carousel-inner .carousel-item {
+            height: 450px;
+        }
 
-    .owl-banner .item .item-content .meta-category span {
-        font-size: 16px;
-    }
 
-    .owl-banner .item .item-content h4 {
-        font-size: 20px;
-    }
-    .push {
-        height: 10%;
-    }
-    #footer {
-        height: 15%;
-    }
-}
+        .owl-banner .owl-nav .owl-next {
+            right: 0px;
+        }
 
-@media (max-width: 1400px) {
-    .owl-carousel .owl-item {
-        height: 10px;
-        height: 450px;
+        .owl-banner .owl-nav button span {
+            width: 35px;
+        }
+
+        .owl-banner .item .item-content .meta-category span {
+            font-size: 16px;
+        }
+
+        .owl-banner .item .item-content h4 {
+            font-size: 20px;
+        }
+
+        .push {
+            height: 10%;
+        }
+
+        #footer {
+            height: 15%;
+        }
     }
 
-}
-@media (max-width: 1400px) {
-    .owl-carousel .owl-item {
-        height: 10px;
-        height: 550px;
-    }
+    @media (max-width: 500px) {
+        .owl-carousel .owl-item img {
+            height:300px !important;
+            width:100%;
+        }
+      
 
-}
+    }
 
     @media (max-width: 768px) {
 
@@ -1063,16 +1065,18 @@ ul.page-numbers {
         }
     }
 
+
     @media (max-width: 992px) {
 
+        .owl-carousel .owl-item img {
+            height: 100%;
+        }
 
         .nitem {
             margin-bottom: 5px;
         }
 
-        .owl-carousel .owl-item {
-            height: 300px;
-        }
+
 
         .navbar .navbar-brand {
             position: absolute;
@@ -1136,7 +1140,7 @@ ul.page-numbers {
             width: 60%; /*hear*/
             height: 10%;
             left: 50%;
-            top: 50%;
+            top: 5%;
             bottom: auto;
             transform: translate(-50%,-50%);
         }
@@ -1180,8 +1184,4 @@ ul.page-numbers {
             }
     }
 
-    @media (max-width: 1024px) {
-        .owl-carousel .owl-item {
-            height: 300px;
-        }
-    }
+ 

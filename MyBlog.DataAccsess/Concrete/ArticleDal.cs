@@ -46,5 +46,11 @@ namespace MyBlog.DataAccsess.Concrete
             MyBlogContext context = new MyBlogContext();
                 return context.Set<Article>().Include("User").Include("Category").Include("HtmlPage").Include("Comments").Include("Likes").SingleOrDefault(filter);
         }
+
+        public List<Article> GetArticlesAllChilds(Expression<Func<Article, bool>> filter = null)
+        {
+            MyBlogContext context = new MyBlogContext();
+            return context.Set<Article>().Include("User").ToList();
+        }
     }
 }

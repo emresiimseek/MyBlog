@@ -39,7 +39,7 @@ namespace MyBlog.DataAccsess
         {
             Database.SetInitializer<MyBlogContext>(null);
             this.Configuration.LazyLoadingEnabled = false;
-            //Database.SetInitializer(new MyInitilazer()); when you initilazer open this row 
+            //Database.SetInitializer(new MyInitilazer()); //when you initilazer open this row
         }
 
     }

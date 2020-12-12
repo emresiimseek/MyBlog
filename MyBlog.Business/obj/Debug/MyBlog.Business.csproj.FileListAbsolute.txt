@@ -54,6 +54,7 @@ C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\AutoMapper.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\FluentValidation.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\log4net.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\System.Web.WebPages.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\System.Web.Razor.dll
@@ -75,6 +76,7 @@ C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\AutoMapper.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\FluentValidation.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\log4net.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\MySql.Data.Entity.EF6.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\System.Web.WebPages.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\System.Web.Razor.xml
@@ -87,5 +89,3 @@ C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Debug\MyBlog.Business.csproj
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Debug\MyBlog.Business.dll.postsharp
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Debug\MyBlog.Business.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Business\obj\Debug\MyBlog.Business.pdb
-C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\MySql.Data.Entity.EF6.dll
-C:\Users\Emre\source\repos\Blog\MyBlog.Business\bin\Debug\MySql.Data.Entity.EF6.xml

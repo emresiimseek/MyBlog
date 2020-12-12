@@ -1,0 +1,15 @@
+﻿@model List<Category>
+
+
+    <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Kategoriler</a>
+    <div class="dropdown-menu">
+        @foreach (Category category in Model)
+        {
+            @Html.ActionLink(category.Title, "getArticlesByCategory", "Articles", new { id = category.Id }, new { @class = "dropdown-item " })
+            @*<a href="/Articles/getArticlesByCategory?catId=@category.CategoryId">@category.CategoryName</a>*@
+            @*<a class="dropdown-item" href="#">@category.CategoryName</a>*@
+        }
+    </div>
+
+
+

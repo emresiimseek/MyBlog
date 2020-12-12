@@ -86,6 +86,7 @@ C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\AutoMapper.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\FluentValidation.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\log4net.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\Newtonsoft.Json.dll
+C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\MySql.Data.Entity.EF6.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\System.ValueTuple.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\FrameworkCore.pdb
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\FrameworkCore.dll.config
@@ -122,6 +123,7 @@ C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\AutoMapper.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\FluentValidation.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\log4net.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\Newtonsoft.Json.xml
+C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\MySql.Data.Entity.EF6.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\System.ValueTuple.xml
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\MyBlog.Mvc.UI.pssym
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\obj\Debug\MyBlog.Mvc.UI.csprojAssemblyReference.cache
@@ -130,5 +132,3 @@ C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\obj\Debug\MyBlog.Mvc.UI.csproj.Cop
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\obj\Debug\MyBlog.Mvc.UI.dll.postsharp
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\obj\Debug\MyBlog.Mvc.UI.dll
 C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\obj\Debug\MyBlog.Mvc.UI.pdb
-C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\MySql.Data.Entity.EF6.dll
-C:\Users\Emre\source\repos\Blog\MyBlog.Mvc.UI\bin\MySql.Data.Entity.EF6.xml

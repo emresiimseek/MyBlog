@@ -8,7 +8,12 @@
 
 @Html.Action("GetArticlesWithBanner", "Home")
 
+<style>
 
+    .blog-posts {
+        margin-top: 30px;
+    }
+</style>
 <section class="blog-posts 
          ">
     <div class="container">
@@ -16,7 +21,7 @@
             <div class="col-lg-8">
                 <div class="all-blog-posts">
                     <div class="row" id="main">
-
+                        
 
                         @foreach (Article article in Model)
                         {
@@ -30,8 +35,8 @@
                                         <span>@article.Category.Title</span>
                                         <a href="/Articles/ArticleDetail?id=@article.Id"><h4>@article.Title</h4></a>
                                         <ul class="post-info">
-                                            <li><a href="#">@article.ModifiedUsername</a></li>
-                                            <li><a href="#">@article.CreatedOn.ToString("dd.MM.yy HH:mm")</a></li>
+                                            <li><a href="#" style="text-transform:capitalize!important;">@article.ModifiedUsername</a></li>
+                                            <li><a href="#">@article.CreatedOn.ToString("dd.MM.yyyy")</a></li>
                                             @if (article.CommentCount!=null)
                                             {
                                             <li><a href="#"> @article.CommentCount Yorum</a></li>
@@ -52,7 +57,7 @@
                                                 <div class="col-6">
                                                     <ul class="post-share">
                                                         <li><i class="fa fa-share-alt"></i></li>
-                                                        <li><a href="#">Facebook</a></li>
+                                                        <li><a href="#">Facebook</a>,</li>
                                                         <li><a href="#"> Twitter</a></li>
                                                     </ul>
                                                 </div>

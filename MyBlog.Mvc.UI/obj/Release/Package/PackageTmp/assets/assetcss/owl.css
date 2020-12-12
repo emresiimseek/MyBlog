@@ -54,6 +54,7 @@
   .owl-carousel .owl-item img {
     display: block;
     width: 100%; 
+    height:450px;
   }
   .owl-carousel .owl-nav.disabled,
   .owl-carousel .owl-dots.disabled {

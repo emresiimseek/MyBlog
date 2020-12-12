@@ -25,9 +25,9 @@
                                         <span>@article.Category.Title</span>
                                         <a href="/Articles/ArticleDetail?id=@article.Id"><h4>@article.Title</h4></a>
                                         <ul class="post-info">
-                                            <li><a href="#">@article.ModifiedUsername</a></li>
-                                            <li><a href="#">@article.CreatedOn.ToString("dd.MM.yy HH:mm")</a></li>
-                                            <li><a href="#">12 Comments</a></li>
+                                            <li ><a href="#" style="text-transform:capitalize!important;">@article.ModifiedUsername</a></li>
+                                            <li><a href="#">@article.CreatedOn.ToString("dd.MM.yyyy")</a></li>
+                                            <li><a href="#">@article.Comments.Count Yorum</a></li>
                                         </ul>
                                         <p>@article.Text <a href="/Articles/ArticleDetail?id=@article.Id">Devamı...</a></p>
                                         <div class="post-options">
@@ -35,7 +35,7 @@
                                                 <div class="col-6">
                                                     <ul class="post-tags">
                                                         <li><i class="fa fa-tags"></i></li>
-                                                        <li><a href="#">@article.Category.Title </a>,</li>
+                                                        <li><a href="#">@article.Category.Title </a></li>
                                                     </ul>
                                                 </div>
 

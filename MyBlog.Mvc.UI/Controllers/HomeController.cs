@@ -38,7 +38,7 @@ namespace MyBlog.Mvc.UI.Controllers
         }
         public PartialViewResult GetArticlesWithBanner()
         {
-            List<Article> articles = _articleService.GetArticles().ToList();
+            List<Article> articles = _articleService.GetArticles().OrderByDescending(x=>x.CreatedOn).ToList();
             return PartialView("_ArticleBannerPartial", articles);
         }
 

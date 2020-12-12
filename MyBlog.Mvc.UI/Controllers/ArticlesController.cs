@@ -14,10 +14,12 @@ namespace MyBlog.Mvc.UI.Controllers
     public class ArticlesController : Controller
     {
         private IArticleService _articleService { get; set; }
+        private  ICategoryService _categoryService { get; set; }
 
-        public ArticlesController(IArticleService articleService)
+        public ArticlesController(IArticleService articleService, ICategoryService categoryService)
         {
             _articleService = articleService;
+            _categoryService = categoryService;
         }
         // GET: Articles
         public ActionResult ArticlesPage()
@@ -29,6 +31,8 @@ namespace MyBlog.Mvc.UI.Controllers
         // GET: Articles
         public ActionResult ArticleDetail(int? id)
         {
+            List<Category> category = _categoryService.GetCategoriesWithChild();
+            Session["cat"] = category;
             Article article = new Article();
             if (id != null)
             {

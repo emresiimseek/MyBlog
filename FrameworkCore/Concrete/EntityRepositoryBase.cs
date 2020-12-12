@@ -24,7 +24,8 @@ namespace FrameworkCore.Concrete
             {
                 identity = (Identity)Thread.CurrentPrincipal.Identity;
             }
-            identity = new Identity { Id = -1 };
+
+            //identity = new Identity { Id = -1 };
         }
 
         public int Add(TEntity entity)
@@ -35,7 +36,7 @@ namespace FrameworkCore.Concrete
                 DateTime dateTime = DateTime.Now;
                 myEntity.CreatedOn = dateTime;
                 myEntity.ModifiedOn = dateTime;
-                myEntity.ModifiedUsername = identity.Id.ToString();
+                myEntity.ModifiedUsername = identity != null ? identity.Firstname + " " + identity.Lastname : "system";
             }
             TContext context = SingletonContext<TContext>.CreateContext();
             context.Configuration.LazyLoadingEnabled = false;

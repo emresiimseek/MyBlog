@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="~/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-    @Scripts.Render("~/js/all")
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">    @Scripts.Render("~/js/all")
     @Styles.Render("~/css/all")
     <link href="~/assets/assetcss/custom.css" rel="stylesheet" />
     @{
@@ -244,7 +244,7 @@
     </script>
 </head>
 <body>
-
+   
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -269,7 +269,9 @@
                                 Anasayfa
                                 <span class="sr-only">(current)</span>
                             </a>
+                             
                         </li>
+                        
                         <li id="about" class="nav-item">
                             <a class="nav-link" href="/About/about">Hakkımda</a>
                         </li>
@@ -325,7 +327,7 @@
 
     <footer class="py-3 bg-dark" id="footer">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+            <p class="m-0 text-center text-white">Copyright &copy; 2020</p>
             <div class="social-buttons" style="text-align:center;">
                 <a href="#">  <i class="fa fa-instagram" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
@@ -336,7 +338,7 @@
     </footer>
     <!-- Additional Scripts -->
     @Scripts.Render("~/temp/js/all")
-
+    
 </body>
 </html>
 @RenderSection("js", required: false)

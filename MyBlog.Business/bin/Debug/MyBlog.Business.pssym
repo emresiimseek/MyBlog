@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Symbols LinesOfCode="279" PostSharpLinesOfCode="0" xmlns="http://schemas.postsharp.org/2.0/symbols">
   <Class Class="#1=T:[FrameworkCore]FrameworkCore.Aspect.PostSharp.CacheAspect.CacheAspect">
-    <Instance Declaration="#2=M:[MyBlog.Business]MyBlog.Business.Concrete.ArticleManager::GetCategories()" Id="c65895ffcf23f52f">
+    <Instance Declaration="#2=M:[MyBlog.Business]MyBlog.Business.Concrete.ArticleManager::GetCategories()" Id="c65895ff09af62c3">
       <Target>
         <JoinPoint Advising="#1" Description="#3=Intercepted by OnInvoke" Ordinal="0" />
       </Target>
     </Instance>
   </Class>
   <Class Class="#4=T:[FrameworkCore]FrameworkCore.Aspect.PostSharp.LogAspect.LogAspect">
-    <Instance Declaration="#5=M:[MyBlog.Business]MyBlog.Business.Concrete.LoginManager::LoginControl(System.String, System.String)" Id="c65895ff489ddf0d">
+    <Instance Declaration="#5=M:[MyBlog.Business]MyBlog.Business.Concrete.LoginManager::LoginControl(System.String, System.String)" Id="c65895ffd06bbbed">
       <Target>
         <JoinPoint Advising="#4" Description="#6=Wrapped by advice(s) OnEntry, OnSuccess, OnException, OnExit" />
       </Target>

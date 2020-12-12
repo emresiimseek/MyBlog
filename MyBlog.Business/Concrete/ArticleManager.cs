@@ -45,12 +45,12 @@ namespace MyBlog.Business.Concrete
 
         public List<Article> GetArticlesByCategory(int? id)
         {
-            return _articleDal.GetAll(a => a.CategoryId == id);
+            return _articleDal.GetArticlesAllChilds(a => a.CategoryId == id);
         }
 
         public List<Article> FindInArticles(string word)
         {
-            return _articleDal.GetAll(a => a.Title.Contains(word));
+            return _articleDal.GetArticlesAllChilds(a => a.Title.Contains(word));
         }
 
         public BusinessLayerResult<Article> Add(BusinessLayerResult<Article> businessLayerResult)

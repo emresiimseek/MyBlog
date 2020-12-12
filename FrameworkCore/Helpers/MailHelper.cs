@@ -45,7 +45,7 @@ namespace FrameworkCore.Helpers
             }
             catch (Exception)
             {
-
+                throw new Exception();
             }
 
 

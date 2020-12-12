@@ -1,0 +1,44 @@
+﻿@model List<Article>
+@using myBlog.EntityFramework.Concrete
+
+@{
+    ViewBag.Title = "Articles";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+<div class="row">
+
+    @foreach (Article article in Model)
+    {
+
+        string[] row = article.Text.Split('.');
+        string text = "";
+        for (int i = 0; i < 2; i++)
+        {
+            text += row[i] + '.';
+        }
+
+        <div class="row" style="margin-left:10%;margin-left:10%">
+
+            <div style="width:374px;" class="card">
+                <div class="thumbnail">
+                    <img src="~/Content/Images/ArticlesImages/Avrup.jpg" width="374" height="374" alt="Yapay Zeka, AI Tam Olarak Nedir?">
+                </div>
+                @*<img style="height:400px" src="~/Content/Images/ArticlesImages/almanya.jpg" class="img-fluid" alt="Responsive image">*@
+
+                <div class="card-body">
+                    <h5 class="card-title">@article.Title</h5>
+                    <p class="card-text">@article.Text</p>
+                    @*<a href="#" class="btn btn-primary">Yazıya Git</a>*@
+                    @Html.ActionLink("Yazıya Git", "ArticleDetail", new { id = article.Id }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+
+        </div>
+       
+    }
+
+
+
+
+</div>
+
